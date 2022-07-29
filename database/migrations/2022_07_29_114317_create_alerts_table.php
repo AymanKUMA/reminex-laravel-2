@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
+            $table->text('alert');
+            $table->foreignId('updated_by')
+                ->references('id_user')
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
