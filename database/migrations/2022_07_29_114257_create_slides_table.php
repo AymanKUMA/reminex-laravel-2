@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('subtitle', 50);
             $table->longText('description');
             $table->string('layout');
+            $table->string('image_path');
             $table->foreignId('updated_by')
                 ->references('id')
                 ->on('users')
@@ -26,7 +27,6 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        DB::statement("ALTER TABLE slides ADD image MEDIUMBLOB");
         DB::statement("ALTER TABLE slides ADD CONSTRAINT layout_options CHECK(layout IN('right','left'))");
 
     }

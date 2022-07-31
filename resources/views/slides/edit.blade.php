@@ -6,16 +6,17 @@
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="p-3 pb-2">
 
-        <form method="POST" action="{{route('slides.store')}}" class="container col col-md-6 " enctype="multipart/form-data">
+        <form method="POST" action={{route('slides.update', ['slide' => $slide->id ])}} class="container col col-md-6 " enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="row row-cols-2 justify-content-center align-items-center">
                 <div class="col col-md-6 col-12 mb-3">
                     <label for="title" class="form-label">Titre : <span style="color: red">*</span> </label>
-                    <input type="text" name="title" placeholder="Titre" id="titre" class="form-control" required>
+                    <input type="text" name="title" placeholder="Titre" id="titre" class="form-control" value="{{$slide->title}}" required>
                 </div>
                 <div class="col col-md-6 col-12 mb-3">
                     <label for="subtitle" class="form-label">Sous-titre : <span style="color: red">*</span></label>
-                    <input type="text" name="subtitle" placeholder="Sous-Titre" id="subtitre" class="form-control"
+                    <input type="text" name="subtitle" placeholder="Sous-Titre" id="subtitre" class="form-control" value="{{$slide->subtitle}}"
                         required>
                 </div>
                 <div class="col col-12 mb-3">
@@ -23,7 +24,7 @@
                         Description
                         <span style="color: red">*</span> :
                     </label>
-                    <textarea name="description" placeholder="Description" id="description" class="form-control" rows="2" required></textarea>
+                    <textarea name="description" placeholder="{{$slide->description}}" id="description" class="form-control" rows="2" required></textarea>
                 </div>
                 <div class="col col-12 mb-3">
                     <label class="form-label d-inline-block mb-3">Position de texte :</label>
@@ -63,8 +64,8 @@
                     <label class="form-label">
                         Image <span style="color: red">* </span> :
                     </label>
-                    <div class="imageContainer m-auto rounded-4">
-                        <img src="#" id="chosenImg" class="img-fluid rounded-4" alt="">
+                    <div class="imageContainer m-auto rounded-4" style="background-image: url({{url('slides_images' . $slide->image_path)}}) no-repeat;">
+                        <img src="#" id="chosenImg" class="img-fluid rounded-4" alt="" >
 
                         <label for="image" id="add-image"
                             class="d-flex flex-column justify-content-center align-items-center">

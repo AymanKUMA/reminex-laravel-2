@@ -38,9 +38,9 @@
                         @endforeach
                         <div class="col">{{ $slide->updated_at }}</div>
                         <div class="col ">
-                            <button type="button" class="button update-colors">
+                            <a href={{route('slides.edit', ['slide' => $slide->id ])}} class="button update-colors">
                                 <i class="fa-solid fa-pencil"></i>
-                            </button>
+                            </a>
                             <button type="button" class="button delete-colors">
                                 <i class="fa-solid fa-trash-can"></i>
                             </button>

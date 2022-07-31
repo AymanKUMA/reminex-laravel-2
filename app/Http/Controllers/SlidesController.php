@@ -42,6 +42,18 @@ class SlidesController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'layout' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:6000',
+        ]);
+
+        $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
+        $request->image->move(public_path('slides_images'), $newImageName);
+
         $slide = new Slide();
 
         $slide->title = strip_tags($request->input('title'));
@@ -49,7 +61,7 @@ class SlidesController extends Controller
         $slide->description = strip_tags($request->input('description'));
         $slide->updated_by = Auth::user()->id;
         $slide->layout = strip_tags($request->input('layout')); 
-        $slide->image = strip_tags($request->input('image')); 
+        $slide->image_path = $newImageName; 
 
         $slide->save();
 
@@ -62,9 +74,12 @@ class SlidesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slide)
     {
         //
+        return view('slides.show',[
+            'slide' => Slide::findOrFail($slide)
+        ]);
     }
 
     /**
@@ -73,9 +88,12 @@ class SlidesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slide)
     {
         //
+        return view('slides.edit',[
+            'slide' => Slide::findOrFail($slide)
+        ]);
     }
 
     /**
@@ -85,9 +103,32 @@ class SlidesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slide)
     {
         //
+        $request->validate([
+            'title' => 'required',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'layout' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:6000',
+        ]);
+
+        $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
+        $request->image->move(public_path('slides_images'), $newImageName);
+
+        $record = Slide::findOrFail($slide);
+
+        $record->title = strip_tags($request->input('title'));
+        $record->subtitle = strip_tags($request->input('subtitle'));
+        $record->description = strip_tags($request->input('description'));
+        $record->updated_by = Auth::user()->id;
+        $record->layout = strip_tags($request->input('layout')); 
+        $record->image_path = $newImageName; 
+
+        $record->save();
+
+        return redirect()->route('slides.index');
     }
 
     /**
