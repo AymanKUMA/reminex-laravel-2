@@ -14,13 +14,13 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('slides', function (Blueprint $table) {
-            $table->id('id_slide');
+            $table->id();
             $table->string('title', 50);
             $table->string('subtitle', 50);
             $table->longText('description');
             $table->string('layout');
             $table->foreignId('updated_by')
-                ->references('id_user')
+                ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
             $table->timestamps();

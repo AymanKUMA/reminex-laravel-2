@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="30">
+    @if (count($slides) > 4)
+        <meta http-equiv="refresh" content="{{ count($slides) * 15 }}">
+    @else
+        <meta http-equiv="refresh" content="60">
+    @endif
 
     <title>Reminex News</title>
 
@@ -36,7 +40,13 @@
         <nav class="navbar">
             <a href="#">
                 <marquee width="100%" direction="left">
-                    this is a sample text that shows the latest notifications about reminex direction
+                    @unless(count($alerts) == 0)
+                        @foreach ($alerts as $alert)
+                            {{ $alert->alert }}&nbsp;&nbsp;&nbsp;&nbsp;
+                        @endforeach
+                    @else
+                        this is a sample text that shows the latest notifications about reminex direction
+                    @endunless
                 </marquee>
             </a>
         </nav>
@@ -45,7 +55,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ url('/home') }}" class="button">Home</a>
+                        <a href="{{ route('slides.index') }}" class="button">Home</a>
                     @else
                         <a href="{{ route('login') }}" class="button">Connexion</a>
                     @endauth
@@ -55,6 +65,33 @@
     <section class="home" id="home">
         <div class="swiper home-slider">
             <div class="swiper-wrapper">
+                @unless(count($slides) == 0)
+                    @foreach ($slides as $slide)
+                        @if ($slide['layout'] == 'right')
+                            <div class="swiper-slide fade">
+                                <?php
+                                echo '<div class="box" style="background: url(data:image;base64,' . base64_encode($slide['image']) . ' ); no-repeat;">';
+                                ?>
+                                <div class="content">
+                                    <h3>{{ $slide->title }}</h3>
+                                    <span>{{ $slide->subtitle }}</span>
+                                    <p>{{ $slide->description }}</p>
+                                </div>
+                            </div>
+                </div>
+            @else
+                <div class="swiper-slide fade">
+                    <div class="box second" style="background: url({{ url('images/home-bg-2.jpg') }}) no-repeat;">
+                        <div class="content">
+                            <h3>{{ $slide->title }}</h3>
+                            <span>{{ $slide->subtitle }}</span>
+                            <p>{{ $slide->description }}</p>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+            @else
                 <div class="swiper-slide fade">
                     <div class="box" style="background: url({{ url('images/innoverpour.jpg') }}) no-repeat;">
                         <div class="content">
@@ -65,10 +102,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            @endunless
         </div>
     </section>
-    <script src={{url("js/script.js")}}></script>
+    <script src={{ url('js/script.js') }}></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
         integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ=="

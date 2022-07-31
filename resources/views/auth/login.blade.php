@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,13 +17,17 @@
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
     <link rel="stylesheet" href="{{ url('css/login.css') }}">
-
+    <style>
+        *{
+            text-transform: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <a href={{ url('/') }} class="arrow animation a">
-            <img src={{url("images/arrow.png")}} alt="" style="width: 30px ">
+            <img src={{ url('images/arrow.png') }} alt="" style="width: 30px ">
         </a>
         <div class="left">
             <div class="loginHeader">
@@ -31,17 +36,15 @@
             </div>
             <form method="POST" action={{ route('login') }} class="form">
                 @csrf
-                @if ($errors->any())
-                    @foreach ($errors->all() as $err)
-                        <p class="animation a6" style="color: red; font-size:small;">{{ $err }}</p>
-                    @endforeach
-                @endif
                 <input class="form-field animation a3" placeholder="Username" id="username" type="username"
                     class="form-control @error('username') is-invalid @enderror" name="username"
                     value="{{ old('username') }}" required autocomplete="username" autofocus>
                 <input class="form-field animation a4" placeholder="Password" id="password" type="password"
                     class="form-control @error('password') is-invalid @enderror" name="password" required
                     autocomplete="current-password">
+                @if ($errors->any())
+                        <p class="animation a6" style="color: red; font-size:small;">Invalid username or password</p>
+                @endif
                 <button class="animation a6">LOGIN</button>
             </form>
         </div>

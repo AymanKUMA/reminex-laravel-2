@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('alert');
             $table->foreignId('updated_by')
-                ->references('id_user')
+                ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
             $table->timestamps();

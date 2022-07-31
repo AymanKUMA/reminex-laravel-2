@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Slide;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SlidesController extends Controller
 {
@@ -14,7 +17,10 @@ class SlidesController extends Controller
     public function index()
     {
         //
-        return view('slides.index');
+        return view('slides.index',[
+            'slides'=>Slide::all(),
+            'users' => User::all(),
+        ]);
     }
 
     /**
@@ -25,6 +31,7 @@ class SlidesController extends Controller
     public function create()
     {
         //
+        return view('slides.create');
     }
 
     /**
@@ -35,7 +42,18 @@ class SlidesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slide = new Slide();
+
+        $slide->title = strip_tags($request->input('title'));
+        $slide->subtitle = strip_tags($request->input('subtitle'));
+        $slide->description = strip_tags($request->input('description'));
+        $slide->updated_by = Auth::user()->id;
+        $slide->layout = strip_tags($request->input('layout')); 
+        $slide->image = strip_tags($request->input('image')); 
+
+        $slide->save();
+
+        return redirect()->route('slides.index');
     }
 
     /**
