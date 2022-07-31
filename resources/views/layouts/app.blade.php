@@ -31,107 +31,53 @@
 </head>
 
 <body>
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
-            <!-- Sidebar - Brand -->
-            <div style="padding: 10px 0">
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-                    <div class="sidebar-brand-icon ">
-                        <img src={{url('images/logo_white.svg')}} alt="" width="175">
-                    </div>
+    <header class="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
+            <a class="navbar-brand mx-4" href={{route('welcomePage')}}>
+                <img src={{url('images/logo_white.svg')}} alt="" style="width: 175px">
+            </a>
 
-                </a>
+            <div class="" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-between">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={{route('slides.index')}}>Slider
+                            <hr>
+                        </a>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block mb-5">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Alert
+                            <hr>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Views
+                            <hr>
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home
+                            <hr>
+                        </a>
+
+                    </li>
+
+
+                </ul>
+
             </div>
-
-            <ul style="list-style: none; padding: 0 ">
-                <li class="nav-item">
-                    <a class="nav-link  active w-100" href="#">
-                        <i class="fa-solid fa-images "></i>
-                        <span>Sliders</span>
-                    </a>
-                </li>
-
-                <li class="nav-item ">
-                    <a class="nav-link  w-100" href="alerts.html">
-                        <i class="fa-solid fa-triangle-exclamation "></i>
-                        <span>Alerts</span>
-                    </a>
-                </li>
-
-                <li class="nav-item ">
-                    <a class="nav-link w-100" href="#">
-                        <i class="fa-solid fa-eye "></i>
-                        <span>View</span></a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link w-100" href="#">
-                        <i class="fa-solid fa-house "></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- End of Sidebar -->
-        <div id="app">
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
-
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ms-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-
-            @yield('content')
+            <form method="POST" class="d-flex mx-4 my-0" action="{{ route('logout') }}" >
+                @csrf
+                <button class="btn btn-warning">Deconnexion</button>
+            </form>
+        </nav>
+    </header>
+    <div id="wrapper">
+        @yield('content')
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"

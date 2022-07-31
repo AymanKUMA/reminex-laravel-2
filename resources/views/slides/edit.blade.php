@@ -12,19 +12,18 @@
             <div class="row row-cols-2 justify-content-center align-items-center">
                 <div class="col col-md-6 col-12 mb-3">
                     <label for="title" class="form-label">Titre : <span style="color: red">*</span> </label>
-                    <input type="text" name="title" placeholder="Titre" id="titre" class="form-control" value="{{$slide->title}}" required>
+                    <input type="text" name="title" placeholder="Titre" id="titre" class="form-control" value="{{$slide->title}}">
                 </div>
                 <div class="col col-md-6 col-12 mb-3">
                     <label for="subtitle" class="form-label">Sous-titre : <span style="color: red">*</span></label>
-                    <input type="text" name="subtitle" placeholder="Sous-Titre" id="subtitre" class="form-control" value="{{$slide->subtitle}}"
-                        required>
+                    <input type="text" name="subtitle" placeholder="Sous-Titre" id="subtitre" class="form-control" value="{{$slide->subtitle}}">
                 </div>
                 <div class="col col-12 mb-3">
                     <label for="description" class="form-label">
                         Description
                         <span style="color: red">*</span> :
                     </label>
-                    <textarea name="description" placeholder="{{$slide->description}}" id="description" class="form-control" rows="2" required></textarea>
+                    <textarea name="description" placeholder="{{$slide->description}}" id="description" class="form-control" rows="2">{{$slide->description}}</textarea>
                 </div>
                 <div class="col col-12 mb-3">
                     <label class="form-label d-inline-block mb-3">Position de texte :</label>
@@ -64,7 +63,7 @@
                     <label class="form-label">
                         Image <span style="color: red">* </span> :
                     </label>
-                    <div class="imageContainer m-auto rounded-4" style="background-image: url({{url('slides_images' . $slide->image_path)}}) no-repeat;">
+                    <div class="imageContainer m-auto rounded-4">
                         <img src="#" id="chosenImg" class="img-fluid rounded-4" alt="" >
 
                         <label for="image" id="add-image"
@@ -99,7 +98,7 @@
 
             </div>
             <div class="d-flex justify-content-end mb-3">
-                <input class="button" type="submit" name="addSlide" value="ajouter">
+                <input class="button" type="submit" name="addSlide" value="modifier">
             </div>
 
         </form>
