@@ -41,10 +41,10 @@
                             <a href={{route('slides.edit', ['slide' => $slide->id ])}} class="button update-colors">
                                 <i class="fa-solid fa-pencil"></i>
                             </a>
-                            <form action="POST" action={{route('slides.destroy', ['slide' => $slide->id ])}} >
+                            <form method="POST" action={{route('slides.destroy', ['slide' => $slide->id ])}} >
+                                @method("DELETE")
                                 @csrf
-                                @method('DELETE')
-                                <button type="button" class="button delete-colors">
+                                <button class="button delete-colors">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </form>

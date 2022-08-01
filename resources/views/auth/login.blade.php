@@ -48,7 +48,7 @@
                 <button class="animation a6">LOGIN</button>
             </form>
         </div>
-        <div class="right" style="background-image: url({{ url('images/home-bg-1.jpg') }});">
+        <div class="right" style="background-image: url({{ url('images/login.jpg') }}); ">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1109.41 249.39" class="logo animation a0">
                 <g id="Layer_1" data-name="Layer 1">
                     <path class="cls-1"

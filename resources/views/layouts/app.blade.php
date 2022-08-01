@@ -72,7 +72,9 @@
 
                 </div>
                 <div class="dropdown user-name">
-                    <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
+                    @auth
+                        <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
+                    @endauth
                     <a href="#" class="d-block link-dark text-decoration-none rounded-circle" style="width: 48px;height: 48px; background-color: #fff;"
                         data-bs-toggle="dropdown" aria-expanded="false">
 

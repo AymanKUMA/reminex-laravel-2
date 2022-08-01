@@ -140,7 +140,8 @@ class SlidesController extends Controller
     public function destroy($slide)
     {
         //
-        $slide->delete();
+        $record = Slide::findOrFail($slide);
+        $record->delete();
         return redirect()->route('slides.index');
     }
 }
