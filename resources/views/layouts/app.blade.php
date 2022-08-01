@@ -10,28 +10,22 @@
 
     <title>@yield('title')</title>
 
+        <!--    bootstrap   -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!--   font-awsome JS-->
+    <script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
+
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-
     <!-- Styles -->
-    <link href="{{ url('css/sideBar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
 </head>
 
 <body>
-    <header class="">
+    {{-- <header class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
             <div class="container-fluid">
                 <a class="navbar-brand mx-4" href={{ route('welcomePage') }}>
@@ -72,9 +66,7 @@
 
                 </div>
                 <div class="dropdown user-name">
-                    @auth
-                        <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
-                    @endauth
+                    <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
                     <a href="#" class="d-block link-dark text-decoration-none rounded-circle" style="width: 48px;height: 48px; background-color: #fff;"
                         data-bs-toggle="dropdown" aria-expanded="false">
 
@@ -113,7 +105,105 @@
                 </button>
             </div>
         </nav>
+    </header> --}}
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src={{url('images/logo_white.svg')}} alt="" style="width: 175px">
+                </a>
+
+                <div class="offcanvas text-bg-dark offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <img src="images/logo.svg" alt="" style="width: 175px">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body justify-content-center">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#">Home
+                                    <hr>
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a class={{(request()->is('*/sliders/*')) ? 'nav-link active' : 'nav-link' }} aria-current="page" href={{ route('slides.index') }}>Slider
+                                    <hr>
+                                </a>
+                                {{dd(request()->is(route('slides.index')));}}
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="#">Alerts
+                                    <hr>
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="#">Users
+                                    <hr>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-inline-flex">
+                    <div class="dropdown user-name">
+
+                        <span class="pe-3 text-light d-sm-flex d-none">Mehdi Moulati</span>
+                        <a href="#" class="d-block link-dark text-decoration-none"
+                            style="width: 48px;height: 48px" data-bs-toggle="dropdown" aria-expanded="false">
+
+                            <img src={{ url('/images/user.png') }} alt="mdo" width="48" height="48"
+                                class="rounded-circle border border-light border-3">
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end text-smaller">
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-solid fa-address-card"></i>
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                    Settings
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider ">
+                            </li>
+                            <li>
+                                <form method="POST" class="dropdown-item d-flex justify-content-center" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button class="btn btn-warning">
+                                        <i class="fa-solid fa-power-off"></i>
+                                        Sign out
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="navbar-toggler mx-2" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" style="background-color: var(--main-color) "
+                        aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon" style="color: var(--main-color)"></span>
+                    </button>
+                </div>
+
+            </div>
+        </nav>
+        <div style="height: 70px"></div>
     </header>
+
+
     <div id="wrapper">
         @yield('content')
     </div>
