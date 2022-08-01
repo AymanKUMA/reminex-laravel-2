@@ -60,6 +60,7 @@ class SlidesController extends Controller
         $slide->subtitle = strip_tags($request->input('subtitle'));
         $slide->description = strip_tags($request->input('description'));
         $slide->updated_by = Auth::user()->id;
+        $slide->created_by = Auth::user()->id;
         $slide->layout = strip_tags($request->input('layout')); 
         $slide->image_path = $newImageName; 
 

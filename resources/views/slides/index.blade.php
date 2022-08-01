@@ -10,27 +10,14 @@
         <!-- Then put toasts within -->
         <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-                <img src="/images/logo.svg" class="rounded me-auto" alt="Reminex">
+                <img src={{url('images/logo_white.svg')}} class="rounded me-auto" alt="Reminex">
 
                 <small class="text-muted">just now</small>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
                         aria-label="Close"></button>
             </div>
             <div class="toast-body">
-                See? Just like this.
-            </div>
-        </div>
-
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="/images/logo.svg" class="rounded me-auto" alt="Reminex">
-
-                <small class="text-muted">2 seconds ago</small>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                        aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                Heads up, toasts will stack automatically
+                Bonjour {{Auth::user()->name}}.
             </div>
         </div>
     </div>
@@ -38,7 +25,7 @@
     <div class="row">
         <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
             <a href={{ route('slides.create') }} class="btn btn-success">
-                <i class="fa-solid fa-plus"></i> Add slider
+                <i class="fa-solid fa-plus"></i> Ajouter
             </a>
         </div>
         <div class="col-sm-6 p-3 d-flex justify-content-end align-items-center">
@@ -66,24 +53,32 @@
             </th>
         </tr>
         </thead>
+        @if (count($slides) != 0)
         <tbody>
-        <tr>
-            <td>Welcome</td>
-            <td>Right</td>
-            <td>2022-07-31</td>
-            <td>Mehdi Moulati</td>
-            <td>2022-07-30</td>
-            <td>Mehdi Moulati</td>
-            <td class="">
-                <button type="button" class="btn btn-primary btn-sm mx-2">
-                    <i class="fa-solid fa-pencil"></i>
-                </button>
-                <button type="button" class="btn btn-danger btn-sm mx-2">
-                    <i class="fa-solid fa-trash-can"></i>
-                </button>
-            </td>
-        </tr>
+            @foreach ($slides as $slide)
+                <tr>
+                    <td>{{ $slide->title }}</td>
+                    <td>{{ $slide->layout }}</td>
+                    <td>{{ $slide->updated_at }}</td>
+                    @foreach ($users as $user)
+                        @if ($user->id == $slide->updated_by)
+                            <td>{{ $user->name }}</td>
+                        @endif
+                    @endforeach
+                    <td>2022-07-30</td>
+                    <td>Mehdi Moulati</td>
+                    <td class="">
+                        <a href={{route('slides.edit', ['slide' => $slide->id ])}} class="btn btn-primary btn-sm mx-2">
+                            <i class="fa-solid fa-pencil"></i>
+                        </a>
+                        <button type="button" class="btn btn-danger btn-sm mx-2">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
+        @endif
     </table>
 
 
