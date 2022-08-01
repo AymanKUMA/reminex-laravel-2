@@ -107,7 +107,11 @@ class SlidesController extends Controller
     {
         //
         $request->validate([
-            'image' => 'mimes:jpg,png,jpeg|max:6000',
+            'title' => 'required',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'layout' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:6000',
         ]);
 
         $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
@@ -133,8 +137,10 @@ class SlidesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slide)
     {
         //
+        $slide->delete();
+        return redirect()->route('slides.index');
     }
 }

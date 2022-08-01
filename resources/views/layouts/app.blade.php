@@ -33,47 +33,83 @@
 <body>
     <header class="">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
-            <a class="navbar-brand mx-4" href={{route('welcomePage')}}>
-                <img src={{url('images/logo_white.svg')}} alt="" style="width: 175px">
-            </a>
+            <div class="container-fluid">
+                <a class="navbar-brand mx-4" href={{ route('welcomePage') }}>
+                    <img src={{ url('images/logo_white.svg') }} alt="" style="width: 175px">
+                </a>
 
-            <div class="" id="navbarSupportedContent">
-                <ul class="navbar-nav d-flex justify-content-between">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href={{route('slides.index')}}>Slider
-                            <hr>
-                        </a>
+                <div class="" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex justify-content-between">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{ route('slides.index') }}>Slider
+                                <hr>
+                            </a>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Alert
-                            <hr>
-                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Alert
+                                <hr>
+                            </a>
 
-                    </li>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Views
-                            <hr>
-                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Views
+                                <hr>
+                            </a>
 
-                    </li>
+                        </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home
-                            <hr>
-                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home
+                                <hr>
+                            </a>
 
-                    </li>
+                        </li>
 
 
-                </ul>
+                    </ul>
 
+                </div>
+                <div class="dropdown user-name">
+                    <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
+                    <a href="#" class="d-block link-dark text-decoration-none rounded-circle" style="width: 48px;height: 48px; background-color: #fff;"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <img src={{url('/images/user.png')}} alt="mdo" width="48" height="48"
+                            class="rounded-circle border border-light border-3">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-smaller">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa-solid fa-address-card"></i>
+                                Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                Settings
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider ">
+                        </li>
+                        <li>
+                            <form method="POST" class="d-flex mx-4 my-0" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="btn btn-warning">Deconnexion</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="navbar-toggler mx-2" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" style="background-color: var(--main-color) "
+                    aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon" style="color: var(--main-color)"></span>
+                </button>
             </div>
-            <form method="POST" class="d-flex mx-4 my-0" action="{{ route('logout') }}" >
-                @csrf
-                <button class="btn btn-warning">Deconnexion</button>
-            </form>
         </nav>
     </header>
     <div id="wrapper">
