@@ -10,8 +10,8 @@
 
     <title>@yield('title')</title>
 
-        <!--    bootstrap   -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    <!--    bootstrap   -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <!--   font-awsome JS-->
     <script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
@@ -111,7 +111,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src={{url('images/logo_white.svg')}} alt="" style="width: 175px">
+                    <img src={{ url('images/logo_white.svg') }} alt="" style="width: 175px">
                 </a>
 
                 <div class="offcanvas text-bg-dark offcanvas-end" tabindex="-1" id="offcanvasNavbar"
@@ -130,14 +130,14 @@
 
                             </li>
                             <li class="nav-item">
-                                <a class={{(request()->is('*/sliders/*')) ? 'nav-link active' : 'nav-link' }} aria-current="page" href={{ route('slides.index') }}>Slider
+                                <a class="nav-link" aria-current="page" href={{ route('slides.index') }}>Slider
                                     <hr>
                                 </a>
-                                {{dd(request()->is(route('slides.index')));}}
+
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="#">Alerts
+                                <a class="nav-link " aria-current="page" href="{{ route('alerts.index') }}">Alerts
                                     <hr>
                                 </a>
 
@@ -180,7 +180,8 @@
                                 <hr class="dropdown-divider ">
                             </li>
                             <li>
-                                <form method="POST" class="dropdown-item d-flex justify-content-center" action="{{ route('logout') }}">
+                                <form method="POST" class="dropdown-item d-flex justify-content-center"
+                                    action="{{ route('logout') }}">
                                     @csrf
                                     <button class="btn btn-warning">
                                         <i class="fa-solid fa-power-off"></i>
@@ -203,21 +204,31 @@
         <div style="height: 70px"></div>
     </header>
 
+    @yield('content')
 
-    <div id="wrapper">
-        @yield('content')
-    </div>
-
+    <!-- Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
         integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
     </script>
-    <script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
+    <!-- ajax library-->
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+    <!-- sort Table JS-->
+    <script src="js/sortTable.js"></script>
+
+    <!-- Launch the Toasts -->
+    <script>
+        var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        var toastList = toastElList.map(function(toastEl) {
+            return new bootstrap.Toast(toastEl)
+        })
+        toastList.forEach(toast => toast.show())
+    </script>
 </body>
 
 </html>
