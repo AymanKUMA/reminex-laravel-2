@@ -56,7 +56,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                        <a href="{{ route('slides.index') }}" class="button">Home</a>
+                        <a href="{{ route('slides.index') }}" class="button">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="button">Connexion</a>
                     @endauth

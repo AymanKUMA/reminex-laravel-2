@@ -8,6 +8,7 @@
 
         <form method="POST" action="{{route('slides.store')}}" class="container col col-md-6 " enctype="multipart/form-data">
             @csrf
+            <h1 style="color: var(--main-color);">Slides</h1>
             <div class="row row-cols-2 justify-content-center align-items-center">
                 <div class="col col-md-6 col-12 mb-3">
                     <label for="title" class="form-label">Titre : <span style="color: red">*</span> </label>
