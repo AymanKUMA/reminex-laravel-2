@@ -35,7 +35,7 @@
                 <div class="offcanvas text-bg-dark offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <img src="images/logo.svg" alt="" style="width: 175px">
+                        <img src={{url('images/logo_white.svg')}} alt="" style="width: 175px">
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>

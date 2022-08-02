@@ -36,7 +36,7 @@
         <h1 class="bienv">bienvenue</h1>
     </div>
 
-    <header class="header">
+    <header class="header" style="background-color: rgba(255, 255, 255, 0.5); padding_buttom : 10px">
         <nav class="navbar">
             <a href="#">
                 <marquee width="100%" direction="left">
@@ -62,6 +62,7 @@
                     @endauth
                 </div>
             @endif
+        </div>
     </header>
 
 

@@ -41,7 +41,10 @@
                             <div class="row m-3">
                                 <label class="form-check-label" style="text-align: center">
                                     Gauche
-                                    <input type="radio" name="layout" class="form-check-input" value="left">
+                                    <input type="radio" name="layout" class="form-check-input" value="left"
+                                    @if ($slide->layout === "left")
+                                        checked
+                                    @endif>
                                 </label>
                             </div>
                         </div>
@@ -52,7 +55,10 @@
                             <div class="row m-3">
                                 <label style="text-align: center" class="form-check-label">
                                     Droite
-                                    <input type="radio" name="layout" class="form-check-input" value="right" checked>
+                                    <input type="radio" name="layout" class="form-check-input" value="right" 
+                                    @if ($slide->layout === "right")
+                                        checked
+                                    @endif >
                                 </label>
                             </div>
                         </div>

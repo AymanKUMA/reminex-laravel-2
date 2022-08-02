@@ -36,7 +36,7 @@
             @else
                 <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
                     <a class="btn btn-danger">
-                        <i class="fa-solid fa-x"></i>Veuillez supprimer un alert
+                        <i class="fa-solid fa-x"></i>&nbsp;&nbsp; Veuillez supprimer un alert
                     </a>
                 </div>
             @endif
@@ -67,7 +67,7 @@
                 @foreach ($alerts as $alert)
                     <tr>
                         <td>
-                            {{ $alert->id }}
+                            {{$i}}
                         </td>
                         @foreach ($users as $user)
                             @if ($user->id == $alert->updated_by)
@@ -90,6 +90,7 @@
                             </form>
                         </td>
                     </tr>
+                    <div style="display: none">{{$i++}}</div>
                 @endforeach
                 </tbody>
             @endif

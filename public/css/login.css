@@ -8,27 +8,7 @@ body {
     height: 100vh;
 }
 
-.arrow{
-    position: absolute;
-    z-index: 3;
-    padding: 10px;
-    margin: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fd9800;
-    border-radius: 50%;
-    transition:0.2s all ease-in-out;
-}
 
-.arrow:hover{
-    background-color: #000000;
-    padding: 12px;
-}
-
-.arrow img{
-    width: 30px;
-}
 
 .left {
     overflow: hidden;

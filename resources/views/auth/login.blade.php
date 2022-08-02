@@ -25,10 +25,10 @@
 </head>
 
 <body>
+    <a href={{ url('/') }} class="arrow animation a">
+        <img src={{ url('images/arrow.png') }} alt="" style="width: 30px ">
+    </a>
     <div class="container">
-        <a href={{ url('/') }} class="arrow animation a">
-            <img src={{ url('images/arrow.png') }} alt="" style="width: 30px ">
-        </a>
         <div class="left">
             <div class="loginHeader">
                 <h2 class="animation a1">Bienvenue</h2>
