@@ -28,7 +28,7 @@
             @if (count($alerts) < 4)
                 <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
                     <a href={{ route('alerts.create') }} class="btn btn-success">
-                    <i class="fa-solid fa-plus"></i>Ajouter
+                    <i class="fa-solid fa-plus me-1"></i>Ajouter
                     </a>
                 </div>
             @else

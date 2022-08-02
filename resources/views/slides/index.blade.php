@@ -68,22 +68,22 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Welcome</td>
-                <td>Right</td>
-                <td>2022-07-31</td>
-                <td>Mehdi Moulati</td>
-                <td>2022-07-30</td>
-                <td>Mehdi Moulati</td>
-                <td class="">
-                    <button type="button" class="btn btn-primary btn-sm mx-2">
-                        <i class="fa-solid fa-pencil"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger btn-sm mx-2">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </td>
-            </tr>
+{{--            <tr>--}}
+{{--                <td>Welcome</td>--}}
+{{--                <td>Right</td>--}}
+{{--                <td>2022-07-31</td>--}}
+{{--                <td>Mehdi Moulati</td>--}}
+{{--                <td>2022-07-30</td>--}}
+{{--                <td>Mehdi Moulati</td>--}}
+{{--                <td class="">--}}
+{{--                    <button type="button" class="btn btn-primary btn-sm mx-2">--}}
+{{--                        <i class="fa-solid fa-pencil"></i>--}}
+{{--                    </button>--}}
+{{--                    <button type="button" class="btn btn-danger btn-sm mx-2">--}}
+{{--                        <i class="fa-solid fa-trash-can"></i>--}}
+{{--                    </button>--}}
+{{--                </td>--}}
+{{--            </tr>--}}
             @if (count($slides) != 0)
                 @foreach ($slides as $slide)
                     <tr>
