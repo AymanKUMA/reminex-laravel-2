@@ -123,14 +123,9 @@ class SlidesController extends Controller
         $record->subtitle = strip_tags($request->input('subtitle'));
         $record->description = strip_tags($request->input('description'));
         $record->updated_by = Auth::user()->id;
-<<<<<<< HEAD
-        $record->layout = strip_tags($request->input('layout')); 
-        $record->image_path = $newImageName; 
-=======
         $record->layout = strip_tags($request->input('layout'));
         $record->image_path = $newImageName;
 
->>>>>>> 90d156ac988f01812dbb64cf266cccf731b73f90
         $record->save();
 
         return redirect()->route('slides.index');

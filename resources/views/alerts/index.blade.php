@@ -64,21 +64,6 @@
             </thead>
             @if (count($alerts) != 0)
                 <tbody>
-<<<<<<< HEAD
-                    @foreach ($alerts as $alert)
-                        <tr>
-                            <td>
-                                {{$i}}
-                            </td>
-                            @foreach ($users as $user)
-                                @if ($user->id == $alert->updated_by)
-                                    <td>{{ $user->name }}</td>
-                                @endif
-                            @endforeach
-                            <td>{{ $alert->updated_at }}</td>
-                            <td>{{ $alert->created_at }}</td>
-                            <td class="">
-=======
                 @foreach ($alerts as $alert)
                     <tr>
                         <td>
@@ -93,24 +78,10 @@
                         <td>{{ $alert->created_at }}</td>
                         <td class="">
                             <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
->>>>>>> 90d156ac988f01812dbb64cf266cccf731b73f90
                                 <a href={{ route('alerts.edit', ['alert' => $alert->id]) }}
                                     class="btn btn-primary btn-sm mx-2">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
-<<<<<<< HEAD
-                                <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-danger btn-sm mx-2">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                        <div style="display: none">{{$i++}}</div>
-                    @endforeach
-=======
                                 @method('DELETE')
                                 @csrf
                                 <button class="btn btn-danger btn-sm mx-2">
@@ -120,7 +91,6 @@
                         </td>
                     </tr>
                 @endforeach
->>>>>>> 90d156ac988f01812dbb64cf266cccf731b73f90
                 </tbody>
             @endif
         </table>
