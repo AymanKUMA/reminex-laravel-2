@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AlertsController extends Controller
 {
@@ -14,7 +17,10 @@ class AlertsController extends Controller
     public function index()
     {
         //
-        return view('alerts.index');
+        return view('alerts.index',[
+            'alerts' => Alert::all(),
+            'users'  => User::all(),
+        ]);
     }
 
     /**
@@ -25,6 +31,7 @@ class AlertsController extends Controller
     public function create()
     {
         //
+        return view('alerts.create');
     }
 
     /**
@@ -36,6 +43,18 @@ class AlertsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'alert' => 'required',
+        ]);
+
+        $alert = new Alert();
+
+        $alert->alert = strip_tags($request->input('alert'));
+        $alert->updated_by = Auth::user()->id; 
+
+        $alert->save();
+
+        return redirect()->route('alerts.index');
     }
 
     /**
@@ -55,10 +74,14 @@ class AlertsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($alert)
     {
         //
+        return view('alerts.edit',[
+            'alert' => Alert::findOrFail($alert)
+        ]);
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -67,9 +90,16 @@ class AlertsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $alert)
     {
         //
+        $record = Alert::findOrFail($alert);
+
+        $record->alert = strip_tags($request->input('alert'));
+        $record->updated_by = Auth::user()->id; 
+
+        $record->save();
+        return redirect()->route('alerts.index');
     }
 
     /**
@@ -78,8 +108,11 @@ class AlertsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($alert)
     {
         //
+        $record = Alert::findOrFail($alert);
+        $record->delete();
+        return redirect()->route('alerts.index');
     }
 }
