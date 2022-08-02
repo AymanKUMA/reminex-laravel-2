@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slide;
 use App\Models\User;
+use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\Storage;
 
 class SlidesController extends Controller
 {
@@ -112,19 +113,23 @@ class SlidesController extends Controller
             'image' => 'mimes:jpg,png,jpeg|max:6000',
         ]);
 
-        $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
-        $request->image->move(public_path('slides_images'), $newImageName);
-
         $record = Slide::findOrFail($slide);
-        $oldpath = public_path('slides_images') . $record->image_path;
-        File::delete($oldpath);
+        $newImageName ='';
+
+        if(isset($request->image)){
+            $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
+            $request->image->move(public_path('slides_images'), $newImageName);
+            Storage::delete('/public/slides_images/' . $record->image_path);
+        }
 
         $record->title = strip_tags($request->input('title'));
         $record->subtitle = strip_tags($request->input('subtitle'));
         $record->description = strip_tags($request->input('description'));
         $record->updated_by = Auth::user()->id;
         $record->layout = strip_tags($request->input('layout'));
-        $record->image_path = $newImageName;
+        if(isset($request->image)){
+            $record->image_path = $newImageName;
+        }
 
         $record->save();
 
@@ -141,6 +146,7 @@ class SlidesController extends Controller
     {
         //
         $record = Slide::findOrFail($slide);
+        Storage::delete('/public/slides_images/' . $record->image_path);
         $record->delete();
         return redirect()->route('slides.index');
     }
