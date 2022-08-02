@@ -110,7 +110,7 @@
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href={{ route('welcomePage') }}>
                     <img src={{ url('images/logo_white.svg') }} alt="" style="width: 175px">
                 </a>
 

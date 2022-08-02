@@ -64,7 +64,7 @@
                         Image <span style="color: red">* </span> :
                     </label>
                     <div class="imageContainer m-auto rounded-4">
-                        <img src="#" id="chosenImg" class="img-fluid rounded-4" alt="" >
+                        <img src={{url('slides_images/' . $slide->image_path)}} id="chosenImg" class="img-fluid rounded-4" alt="" >
 
                         <label for="image" id="add-image"
                             class="d-flex flex-column justify-content-center align-items-center">
@@ -75,7 +75,7 @@
                         </label>
 
                         <input type="file" name="image" placeholder="Titre" id="image" class="form-control" hidden
-                            onchange="readURL(this)" required>
+                            onchange="readURL(this)">
                     </div>
                     <script>
                         function readURL(input) {

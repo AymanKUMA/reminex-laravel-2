@@ -108,11 +108,7 @@ class SlidesController extends Controller
     {
         //
         $request->validate([
-            'title' => 'required',
-            'subtitle' => 'required',
-            'description' => 'required',
-            'layout' => 'required',
-            'image' => 'required|mimes:jpg,png,jpeg|max:6000',
+            'image' => 'mimes:jpg,png,jpeg|max:6000',
         ]);
 
         $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
