@@ -61,8 +61,8 @@ class SlidesController extends Controller
         $slide->description = strip_tags($request->input('description'));
         $slide->updated_by = Auth::user()->id;
         $slide->created_by = Auth::user()->id;
-        $slide->layout = strip_tags($request->input('layout')); 
-        $slide->image_path = $newImageName; 
+        $slide->layout = strip_tags($request->input('layout'));
+        $slide->image_path = $newImageName;
 
         $slide->save();
 
@@ -102,7 +102,7 @@ class SlidesController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $slide)
     {
@@ -120,8 +120,8 @@ class SlidesController extends Controller
         $record->subtitle = strip_tags($request->input('subtitle'));
         $record->description = strip_tags($request->input('description'));
         $record->updated_by = Auth::user()->id;
-        $record->layout = strip_tags($request->input('layout')); 
-        $record->image_path = $newImageName; 
+        $record->layout = strip_tags($request->input('layout'));
+        $record->image_path = $newImageName;
 
         $record->save();
 
@@ -132,7 +132,7 @@ class SlidesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($slide)
     {
