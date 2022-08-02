@@ -21,7 +21,7 @@
             </div>
         </div>
     </div>
-
+    <h1 style="color: var(--main-color);">Slider</h1>
     <div class="row">
         <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
             <a href={{ route('slides.create') }} class="btn btn-success">

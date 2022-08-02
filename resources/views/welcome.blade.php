@@ -25,7 +25,7 @@
 
 </head>
 
-<body>
+<body style="background-color: black;">
 
     <!-- intro animation  -->
 
@@ -121,6 +121,7 @@
         crossorigin="anonymous"></script>
     <script>
         var swiper = new Swiper(".home-slider", {
+            effect: "coverflow",
             loop: true,
             autoplay: {
                 delay: 5000,

@@ -6,6 +6,7 @@ use App\Models\Slide;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File; 
 
 class SlidesController extends Controller
 {
@@ -115,6 +116,8 @@ class SlidesController extends Controller
         $request->image->move(public_path('slides_images'), $newImageName);
 
         $record = Slide::findOrFail($slide);
+        $oldpath = public_path('slides_images') . $record->image_path;
+        File::delete($oldpath);
 
         $record->title = strip_tags($request->input('title'));
         $record->subtitle = strip_tags($request->input('subtitle'));
@@ -122,7 +125,6 @@ class SlidesController extends Controller
         $record->updated_by = Auth::user()->id;
         $record->layout = strip_tags($request->input('layout')); 
         $record->image_path = $newImageName; 
-
         $record->save();
 
         return redirect()->route('slides.index');

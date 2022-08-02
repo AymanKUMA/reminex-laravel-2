@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
+{{$i = 1}}
+
 @section('title', 'Alerts')
 
 @section('content')
 
     <div class="container py-4 position-relative" aria-live="polite" aria-atomic="true" style="height: calc(100vh - 70px)">
-
+        <h1 style="color: var(--main-color);">Alerts</h1>
         @if (count($alerts) >= 4)
             <div class="toast-container bottom-0 start-0 p-3 ">
 
@@ -66,7 +68,7 @@
                     @foreach ($alerts as $alert)
                         <tr>
                             <td>
-                                {{ $alert->id }}
+                                {{$i}}
                             </td>
                             @foreach ($users as $user)
                                 @if ($user->id == $alert->updated_by)
@@ -89,9 +91,11 @@
                                 </form>
                             </td>
                         </tr>
+                        <div style="display: none">{{$i++}}</div>
                     @endforeach
                 </tbody>
             @endif
         </table>
     </div>
 @endsection
+
