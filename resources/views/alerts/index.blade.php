@@ -14,7 +14,7 @@
                 <!-- Then put toasts within -->
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
-                        <img src={{ url('images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
+                        <img src="{{ url('images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
 
                         <small class="text-muted">just now</small>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
@@ -28,7 +28,7 @@
             @if (session()->has('message'))
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
-                        <img src={{ url('/images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
+                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
 
                         <small class="text-muted">just now</small>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
@@ -45,7 +45,7 @@
         <div class="row">
             @if (count($alerts) < 4)
                 <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
-                    <a href={{ route('alerts.create') }} class="btn btn-success">
+                    <a href="{{ route('alerts.create') }}" class="btn btn-success">
                         <i class="fa-solid fa-plus me-1"></i>Ajouter
                     </a>
                 </div>
@@ -94,13 +94,13 @@
                             <td>{{ $alert->created_at }}</td>
                             <td class="">
                                 <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
-                                    <a href={{ route('alerts.edit', ['alert' => $alert->id]) }}
-                                        class="btn btn-primary btn-sm mx-2">
+                                    <a href="{{ route('alerts.edit', ['alert' => $alert->id]) }}"
+                                        class="btn btn-primary mx-2">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger btn-sm mx-2"
+                                    <button class="btn btn-danger  mx-2"
                                         onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
