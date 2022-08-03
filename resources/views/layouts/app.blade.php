@@ -42,27 +42,27 @@
                     <div class="offcanvas-body justify-content-center">
                         <ul class="navbar-nav ">
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href={{route('welcomePage')}}>Home
+                                <a class="nav-link {{ Request::is('homes*') ? 'active' : '' }}" aria-current="page" href={{route('welcomePage')}}>Home
                                     <hr>
                                 </a>
 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href={{ route('slides.index') }}>Slider
-                                    <hr>
-                                </a>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="{{ route('alerts.index') }}">Alerts
+                                <a class="nav-link {{ Request::is('slides*') ? 'active' : '' }}" aria-current="page" href={{ route('slides.index') }}>Slider
                                     <hr>
                                 </a>
 
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link " aria-current="page" href="#">Users
+                                <a class="nav-link {{ Request::is('alerts*') ? 'active' : '' }}" aria-current="page" href="{{ route('alerts.index') }}">Alerts
+                                    <hr>
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('users*') ? 'active' : '' }}" aria-current="page" href="#">Users
                                     <hr>
                                 </a>
                             </li>
