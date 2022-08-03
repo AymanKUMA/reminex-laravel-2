@@ -27,7 +27,7 @@
                         Description
                         <span style="color: red">*</span> :
                     </label>
-                    <textarea name="description" placeholder="{{ $slide->description }}" id="description" class="form-control"
+                    <textarea name="description" id="description" class="form-control"
                         rows="2">{{ $slide->description }}</textarea>
                 </div>
                 <div class="col col-12 mb-3">
@@ -42,7 +42,7 @@
                                 <label class="form-check-label" style="text-align: center">
                                     Gauche
                                     <input type="radio" name="layout" class="form-check-input" value="left"
-                                    @if ($slide->layout === "left")
+                                    @if ($slide->layout == "left")
                                         checked
                                     @endif>
                                 </label>
@@ -56,7 +56,7 @@
                                 <label style="text-align: center" class="form-check-label">
                                     Droite
                                     <input type="radio" name="layout" class="form-check-input" value="right" 
-                                    @if ($slide->layout === "right")
+                                    @if ($slide->layout == "right")
                                         checked
                                     @endif >
                                 </label>
@@ -75,7 +75,6 @@
                     <div class="imageContainer m-auto rounded-4" style="height: 20vh; overflow-y:hidden">
                         <img src={{ url('slides_images/' . $slide->image_path) }} id="chosenImg" class="img-fluid rounded-4"
                             alt="">
-
                         <label for="image" id="add-image"
                             class="d-flex flex-column justify-content-center align-items-center">
 

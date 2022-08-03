@@ -86,7 +86,7 @@
                             </div>
                         @else
                             <div class="swiper-slide fade">
-                                <div class="box"
+                                <div class="box second"
                                     style="background: url({{ url('slides_images/' . $slide->image_path) }}); no-repeat;">
                                     <div class="content">
                                         <h3>{{ $slide->title }}</h3>

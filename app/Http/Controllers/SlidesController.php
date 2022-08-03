@@ -114,23 +114,18 @@ class SlidesController extends Controller
         ]);
 
         $record = Slide::findOrFail($slide);
-        $newImageName ='';
 
-        if(isset($request->image)){
-            $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
-            $request->image->move(public_path('slides_images'), $newImageName);
-            Storage::delete('/public/slides_images/' . $record->image_path);
+        if(isset($request->image)){   
+            $request->image->move(public_path('slides_images'), $record->image_path);
+            $record->image_path = $record->image_path;
         }
+
 
         $record->title = strip_tags($request->input('title'));
         $record->subtitle = strip_tags($request->input('subtitle'));
         $record->description = strip_tags($request->input('description'));
         $record->updated_by = Auth::user()->id;
         $record->layout = strip_tags($request->input('layout'));
-        if(isset($request->image)){
-            $record->image_path = $newImageName;
-        }
-
         $record->save();
 
         return redirect()->route('slides.index');
@@ -146,7 +141,10 @@ class SlidesController extends Controller
     {
         //
         $record = Slide::findOrFail($slide);
-        Storage::delete('/public/slides_images/' . $record->image_path);
+        $delete_image_path = public_path('slides_images'). '\\' . $record->image_path;
+        if(File::exists(strval($delete_image_path))) {
+            File::delete(strval($delete_image_path));
+        }
         $record->delete();
         return redirect()->route('slides.index');
     }
