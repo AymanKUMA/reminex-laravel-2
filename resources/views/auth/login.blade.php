@@ -18,8 +18,30 @@
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
     <link rel="stylesheet" href="{{ url('css/login.css') }}">
     <style>
-        *{
+        * {
             text-transform: none;
+        }
+
+        .arrow {
+            position: absolute;
+            z-index: 3;
+            padding: 10px;
+            margin: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fd9800;
+            border-radius: 50%;
+            transition: 0.2s all ease-in-out;
+        }
+
+        .arrow:hover {
+            background-color: #000000;
+            padding: 12px;
+        }
+
+        .arrow img {
+            width: 30px;
         }
     </style>
 </head>
@@ -43,12 +65,13 @@
                     class="form-control @error('password') is-invalid @enderror" name="password" required
                     autocomplete="current-password">
                 @if ($errors->any())
-                        <p class="animation a6" style="color: red; font-size:small;">Invalid username or password</p>
+                    <p class="animation a6" style="color: red; font-size:small;">Invalid username or password</p>
                 @endif
                 <button class="animation a6">LOGIN</button>
             </form>
         </div>
-        <div class="right" style="background-image: url({{ url('images/login.jpg') }}); background-color: gray; background-blend-mode: multiply;">
+        <div class="right"
+            style="background-image: url({{ url('images/login.jpg') }}); background-color: gray; background-blend-mode: multiply;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1109.41 249.39" class="logo animation a0">
                 <g id="Layer_1" data-name="Layer 1">
                     <path class="cls-1"
