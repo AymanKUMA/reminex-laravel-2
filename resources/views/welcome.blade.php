@@ -37,12 +37,12 @@
     </div>
 
     <header class="header" style="background-color: rgba(255, 255, 255, 0.5); padding_buttom : 10px">
-        <nav class="navbar" onm>
+        <nav class="navbar" >
             <a href="#">
                 <marquee width="100%" direction="left" onmouseenter="this.stop();" onmouseleave="this.start();">
                     @unless(count($alerts) == 0)
                         @foreach ($alerts as $alert)
-                            <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px" alt=""> {{ $alert->alert }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px ; transition" alt=""> {{ $alert->alert }}&nbsp;&nbsp;&nbsp;&nbsp;
                         @endforeach
                     @else
                         this is a sample text that shows the latest notifications about reminex direction
@@ -87,7 +87,7 @@
                         @else
                             <div class="swiper-slide fade">
                                 <div class="box second"
-                                    style="background: url({{ url('slides_images/' . $slide->image_path) }}); no-repeat;">
+                                    style="background: url({{ url('slides_images/' . $slide->image_path) }}) no-repeat;">
                                     <div class="content">
                                         <h3>{{ $slide->title }}</h3>
                                         <span>{{ $slide->subtitle }}</span>
