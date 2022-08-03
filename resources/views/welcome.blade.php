@@ -121,21 +121,22 @@
         integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ=="
         crossorigin="anonymous"></script>
     <script>
-        var swiper = new Swiper(".home-slider", {
-            effect: "coverflow",
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false
-            },
-            Shader: 'polygons-fall',
-            grabCursor: true,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-
+        @unless(count($slides) <= 1)
+            var swiper = new Swiper(".home-slider", {
+                effect: "coverflow",
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+                Shader: 'polygons-fall',
+                grabCursor: true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        @endunless
 
         const tl = gsap.timeline({
             defaults: {
