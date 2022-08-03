@@ -117,7 +117,6 @@ class SlidesController extends Controller
 
         if(isset($request->image)){   
             $request->image->move(public_path('slides_images'), $record->image_path);
-            $record->image_path = $record->image_path;
         }
 
 

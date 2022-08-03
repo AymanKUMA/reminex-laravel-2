@@ -72,7 +72,7 @@
                     <label class="form-label">
                         Image <span style="color: red">* </span> :
                     </label>
-                    <div class="imageContainer m-auto rounded-4" style="height: 20vh; overflow-y:hidden">
+                    <div class="imageContainer m-auto rounded-4" style="height: 300px; overflow-y:hidden">
                         <img src={{ url('slides_images/' . $slide->image_path) }} id="chosenImg" class="img-fluid rounded-4"
                             alt="">
                         <label for="image" id="add-image"

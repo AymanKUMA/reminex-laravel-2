@@ -73,7 +73,7 @@
             <div class="swiper-wrapper">
                 @unless(count($slides) == 0)
                     @foreach ($slides as $slide)
-                        @if ($slide->layout == 'left')
+                        @if ($slide->layout == 'right')
                             <div class="swiper-slide fade">
                                 <div class="box"
                                     style="background: url({{ url('slides_images/' . $slide->image_path) }}); no-repeat;">
