@@ -17,9 +17,10 @@
                 </label>
                 <textarea name="alert" placeholder="Annonce" id="alert" class="form-control" rows="8" required></textarea>
             </div>
-            <div class="d-flex justify-content-end mb-3">
-                <input class="button" type="submit" name="addSlide" value="ajouter">
-            </div>
+
+        </div>
+        <div class="d-flex justify-content-end mb-3">
+            <input class="button" type="submit" name="addSlide" value="ajouter">
         </div>
     </form>
 </div>
