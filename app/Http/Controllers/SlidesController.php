@@ -68,7 +68,7 @@ class SlidesController extends Controller
 
         $slide->save();
 
-        return redirect()->route('slides.index');
+        return redirect()->route('slides.index')->with('message', 'slide added successfully !');
     }
 
     /**

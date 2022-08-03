@@ -54,7 +54,7 @@ class AlertsController extends Controller
 
         $alert->save();
 
-        return redirect()->route('alerts.index');
+        return redirect()->route('alerts.index')->with('message', 'Alert added successfully !');
     }
 
     /**

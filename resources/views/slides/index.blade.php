@@ -8,19 +8,36 @@
         <div class="toast-container bottom-0 start-0 p-3 ">
 
             <!-- Then put toasts within -->
-            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <img src={{url('/images/logo_white.svg')}} class="rounded me-auto" alt="Reminex">
+            @if (session()->has('success_login'))
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src={{ url('/images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
 
-                    <small class="text-muted">just now</small>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                        aria-label="Close"></button>
+                        <small class="text-muted">just now</small>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        {{ session()->get('success_login') . ' ' . Auth::user()->name }}
+                    </div>
                 </div>
-                <div class="toast-body">
-                    Bonjour {{Auth::user()->name}}
+            @endif
+            @if (session()->has('message'))
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src={{ url('/images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
+
+                        <small class="text-muted">just now</small>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        {{ session()->get('message') }}
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
+
 
         <div class="row">
             <h1 style="color: var(--main-color);">Slides</h1>
@@ -34,7 +51,6 @@
                 <input id="find" class="form-control me-2 " type="search" style="max-width: 350px"
                     placeholder="search" aria-label="Search" oninput="findInTable(this.value,'sortTab')">
             </div>
-
         </div>
 
         <table id="sortTab" class="table table-striped table-dark table-bordered nowrap rounded-3">
@@ -87,7 +103,8 @@
                                     </a>
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger btn-sm mx-2">
+                                    <button class="btn btn-danger btn-sm mx-2"
+                                        onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </form>
