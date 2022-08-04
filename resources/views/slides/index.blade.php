@@ -85,9 +85,8 @@
                             @endforeach
 
                             <td>{{ $slide->created_at }}</td>
-
                             @foreach ($users as $user)
-                                @if ($user->id == $slide->updated_by)
+                                @if ($user->id == $slide->created_by)
                                     <td class="col">{{ $user->name }}</td>
                                 @endif
                             @endforeach

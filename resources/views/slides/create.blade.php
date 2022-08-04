@@ -24,7 +24,7 @@
                         Description
                         <span style="color: red">*</span> :
                     </label>
-                    <textarea name="description" placeholder="Description" id="description" class="form-control" rows="2" required></textarea>
+                    <textarea name="description" placeholder="Description" id="description" class="form-control" rows="2" maxlength="400" required></textarea>
                 </div>
                 <div class="col col-12 mb-3">
                     <label class="form-label d-inline-block mb-3">Position de texte :</label>

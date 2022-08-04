@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\SlidesController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use phpDocumentor\Reflection\Types\Resource_;
 
@@ -29,4 +30,6 @@ Route::resource('slides', SlidesController::class)->middleware('auth');
 Route::resource('alerts',  AlertsController::class)->middleware('auth');
 Route::resource('users',  UsersController::class)->middleware('auth');
 
-Route::get('/profile',  [UsersController::class, 'profile'])->middleware('auth')->name('profile');
+Route::get('/profile',  [ProfileController::class, 'profile'])->middleware('auth')->name('profile');
+Route::get('/profile/change-password',  [ProfileController::class, 'changePassword'])->middleware('auth')->name('changePassword');
+Route::post('/profile/change-password',  [ProfileController::class, 'updatePassword'])->middleware('auth')->name('updatePassword');

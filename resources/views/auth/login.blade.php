@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- Styles -->
+    <script src="https://kit.fontawesome.com/3392ac5187.js" crossorigin="anonymous"></script>
 
     <!--slider js library-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -43,6 +44,23 @@
         .arrow img {
             width: 30px;
         }
+
+        .error {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #842029;
+            font-size: 13px;
+            border-radius: 5px;
+            border: #f5c2c7 solid 1px;
+        }
+
+        .error>i{
+            margin-right: 15px;
+        }
     </style>
 </head>
 
@@ -56,7 +74,14 @@
                 <h2 class="animation a1">Bienvenue</h2>
                 <h4 class="animation a2">Connecter a votre compte admin</h4>
             </div>
+
             <form method="POST" action={{ route('login') }} class="form">
+                @if ($errors->any())
+                    <div class="error animation a3">
+                        <i class="fa-solid fa-triangle-exclamation fa-lg"></i>
+                        <p>Invalid username or password</p>
+                    </div>
+                @endif
                 @csrf
                 <input class="form-field animation a3" placeholder="Username" id="username" type="username"
                     class="form-control @error('username') is-invalid @enderror" name="username"
@@ -64,9 +89,6 @@
                 <input class="form-field animation a4" placeholder="Password" id="password" type="password"
                     class="form-control @error('password') is-invalid @enderror" name="password" required
                     autocomplete="current-password">
-                @if ($errors->any())
-                    <p class="animation a6" style="color: red; font-size:small;">Invalid username or password</p>
-                @endif
                 <button class="animation a6">LOGIN</button>
             </form>
         </div>

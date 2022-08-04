@@ -22,6 +22,22 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
+
+    <style>
+        .dropdown-item.active {
+            background-color: var(--main-color);
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--main-color);
+            color: white;
+        }
+
+        .form-control:focus {
+            border-color: var(--main-color);
+            box-shadow: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -35,34 +51,38 @@
                 <div class="offcanvas text-bg-dark offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <img src={{url('images/logo_white.svg')}} alt="" style="width: 175px">
+                        <img src={{ url('images/logo_white.svg') }} alt="" style="width: 175px">
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body justify-content-center">
                         <ul class="navbar-nav ">
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('homes*') ? 'active' : '' }}" aria-current="page" href={{route('welcomePage')}}>Home
+                                <a class="nav-link {{ Request::is('homes*') ? 'active' : '' }}" aria-current="page"
+                                    href={{ route('welcomePage') }}>Home
                                     <hr>
                                 </a>
 
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('slides*') ? 'active' : '' }}" aria-current="page" href={{ route('slides.index') }}>Slider
-                                    <hr>
-                                </a>
-
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is('alerts*') ? 'active' : '' }}" aria-current="page" href={{ route('alerts.index') }}>Alerts
+                                <a class="nav-link {{ Request::is('slides*') ? 'active' : '' }}" aria-current="page"
+                                    href={{ route('slides.index') }}>Slider
                                     <hr>
                                 </a>
 
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('users*') ? 'active' : '' }}" aria-current="page" href={{ route('users.index') }}>Users
+                                <a class="nav-link {{ Request::is('alerts*') ? 'active' : '' }}" aria-current="page"
+                                    href={{ route('alerts.index') }}>Alerts
+                                    <hr>
+                                </a>
+
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('users*') ? 'active' : '' }}" aria-current="page"
+                                    href={{ route('users.index') }}>Users
                                     <hr>
                                 </a>
                             </li>
@@ -74,7 +94,7 @@
                 <div class="d-inline-flex">
                     <div class="dropdown user-name">
                         @auth
-                            <span class="pe-3 text-light d-sm-flex d-none">{{Auth::user()->name}}</span>
+                            <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
                         @else
                             <span class="pe-3 text-light d-sm-flex d-none">Guest</span>
                         @endauth
@@ -86,15 +106,17 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end text-smaller">
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item {{ Request::is('profile') ? 'active' : '' }}"
+                                    href="{{ route('profile') }}">
                                     <i class="fa-solid fa-address-card"></i>
                                     Profile
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item {{ Request::is('profile/change-password') ? 'active' : '' }}"
+                                    href="{{ route('changePassword') }}">
                                     <i class="fa-solid fa-screwdriver-wrench"></i>
-                                    Settings
+                                    Change password
                                 </a>
                             </li>
                             <li>
