@@ -280,54 +280,54 @@ td {
 
 }
 
-/* delete CSS */
-
-.item.zoom {
-    animation: zoom forwards 0.7s ease-out 1;
-}
-
-.item.shredding {
-    animation: reduceWidth forwards 1.7s ease-out 1;
-}
-
-.item.fall {
-    animation: fallAway forwards 1s ease-out 1;
-}
-
-.item.analogue {
-    animation: analogue forwards 1s ease-out 1;
-}
-
-.animation-assets > .item-wrap > .item {
-    animation: spinALittle 1.4s ease-out 1 forwards;
-    perspective: 1000px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-form{
+form {
     margin-bottom: 0;
 }
 
-.item-wrap {
-    animation: dropShadow 0.1s ease-out forwards 1;
+thead tr th:last-child {
+    border-top-right-radius: 10px;
 }
 
-/* delete animation */
+thead tr th:first-child {
+    border-top-left-radius: 10px;
+}
 
-@keyframes fallAway {
-    0% {
-        transform: rotateZ(0deg);
-        top: 0;
-        opacity: 1;
-    }
-    25% {
-        transform: rotateZ(-15deg);
-    }
-    100% {
-        top: 300px;
-        transform: rotateZ(-5deg);
-        opacity: 0;
-    }
+tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+table {
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    border-collapse: revert;
+}
+
+td, th {
+    vertical-align: middle;
+
+}
+.dropdown-menu::before {
+    --width-triangle: 10px;
+
+    content: ''; /* Required to display content */
+    position: absolute; /* Sets the position absolute to the top div */
+    top: 0;
+    right: 2.1%; /* position the little arrow */
+
+    margin-left: calc(-1*var(--width-triangle));
+    margin-top:  calc(-1*var(--width-triangle));
+
+    width: 0;
+    z-index: 1;
+    height: 0;
+
+    border-bottom: solid  var(--width-triangle) #FFF; /* Creates the arrow pointing up, to change to a notch instead user border-top */
+    border-left: solid  var(--width-triangle) transparent; /* Creates triangle effect */
+    border-right: solid var(--width-triangle) transparent; /* Creates triangle effect */
+
 }
