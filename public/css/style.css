@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,700&family=Roboto:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,700&display=swap");
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -62,12 +64,12 @@ section {
     align-items: center;
 }
 
-.intro-animation span{
+.intro-animation span {
     width: 50vw;
     overflow-y: hidden;
 }
 
-.animate img{
+.animate img {
     transform: translateY(100%);
 }
 
@@ -132,6 +134,8 @@ h1 {
 marquee {
     padding: 0.5rem;
     background-color: #fd9800;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
 }
 
 .home {
