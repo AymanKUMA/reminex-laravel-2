@@ -36,16 +36,16 @@
         <h1 class="bienv">bienvenue</h1>
     </div>
 
-    <header class="header" style="background-color: rgba(255, 255, 255, 0.5); padding_buttom : 10px">
+    <header class="header" style="background-color: rgba(255, 255, 255, 0.5); padding-bottom: 10px;">
         <nav class="navbar" >
             <a href="#">
-                <marquee width="100%" direction="left" onmouseenter="this.stop();" onmouseleave="this.start();">
+                <marquee width="100%" direction="left" onmouseenter="this.stop();" onmouseleave="this.start();" scrolldelay = "30">
                     @unless(count($alerts) == 0)
                         @foreach ($alerts as $alert)
-                            <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px ; transition" alt=""> {{ $alert->alert }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px ; transition" alt=""> {{ $alert->alert }}
                         @endforeach
                     @else
-                        this is a sample text that shows the latest notifications about reminex direction
+                        &nbsp;&nbsp; this is a sample text that shows the latest notifications about reminex direction &nbsp;&nbsp;
                     @endunless
                 </marquee>
             </a>

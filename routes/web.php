@@ -28,3 +28,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('slides', SlidesController::class)->middleware('auth');
 Route::resource('alerts',  AlertsController::class)->middleware('auth');
 Route::resource('users',  UsersController::class)->middleware('auth');
+
+Route::get('/profile',  [UsersController::class, 'profile'])->middleware('auth')->name('profile');
