@@ -9,18 +9,18 @@
 
             <!-- Then put toasts within -->
             @if (session()->has('success_login'))
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <img src={{ url('/images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <img src={{ url('/images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
 
-                        <small class="text-muted">just now</small>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        {{ session()->get('success_login') . ' ' . Auth::user()->name }}
-                    </div>
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                        aria-label="Close"></button>
                 </div>
+                <div class="toast-body">
+                    {{ session()->get('success_login') .' '. Auth::user()->name }}
+                </div>
+            </div>
             @endif
             @if (session()->has('message'))
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -32,7 +32,7 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="toast-body">
-                        {{ session()->get('message') }}
+                        {{session()->get('message')}}
                     </div>
                 </div>
             @endif
@@ -103,8 +103,7 @@
                                     </a>
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger btn-sm mx-2"
-                                        onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
+                                    <button class="btn btn-danger btn-sm mx-2" onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </form>

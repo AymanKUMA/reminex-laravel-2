@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\AlertsController;
 use App\Http\Controllers\SlidesController;
 use App\Http\Controllers\WelcomeController;
@@ -26,3 +27,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('slides', SlidesController::class)->middleware('auth');
 Route::resource('alerts',  AlertsController::class)->middleware('auth');
+Route::resource('users',  UsersController::class)->middleware('auth');

@@ -25,7 +25,7 @@
         <div class="row">
             <h1 style="color: var(--main-color);">Users</h1>
             <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
-                <a href={{ route('slides.create') }} class="btn btn-success">
+                <a href={{ route('users.create') }} class="btn btn-success">
                     <i class="fa-solid fa-plus"></i> Add user
                 </a>
             </div>
@@ -79,8 +79,8 @@
                             <td>
 
                                 <form class="" method="POST"
-                                    action={{ route('slides.destroy', ['slide' => $slide->id]) }}>
-                                    <a href={{ route('slides.edit', ['slide' => $slide->id]) }}
+                                    action={{ route('users.destroy', ['user' => $user->id]) }}>
+                                    <a href={{ route('users.edit', ['user' => $user->id]) }}
                                         class="btn btn-primary btn-sm
                                    mx-2">
                                         <i class="fa-solid fa-pencil"></i>
