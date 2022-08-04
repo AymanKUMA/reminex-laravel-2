@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="container py-4 position-relative" aria-live="polite" aria-atomic="true" style="height: calc(100vh - 70px)">
+    <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true" style="height: calc(100vh - 70px)">
         <h1 style="color: var(--main-color);">Alerts</h1>
 
         <div class="toast-container bottom-0 start-0 p-3 ">
@@ -64,8 +64,9 @@
 
         </div>
 
-        <table id="sortTab" class="table table-striped table-dark table-bordered nowrap rounded-3">
-            <thead>
+        <div class="table-responsive">
+            <table id="sortTab" class="table table-striped table-dark table-bordered nowrap rounded-3">
+                <thead>
                 <tr>
                     <th role="button" onclick="sortTable(0)"> ID <i class="fa-solid fa-sort fa-2xs"></i></th>
                     <th role="button" onclick="sortTable(1)"> Created by <i class="fa-solid fa-sort fa-2xs"></i></th>
@@ -77,9 +78,9 @@
                         Actions
                     </th>
                 </tr>
-            </thead>
-            @if (count($alerts) != 0)
-                <tbody>
+                </thead>
+                @if (count($alerts) != 0)
+                    <tbody>
                     @foreach ($alerts as $alert)
                         <tr>
                             <td>
@@ -95,13 +96,13 @@
                             <td class="">
                                 <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
                                     <a href="{{ route('alerts.edit', ['alert' => $alert->id]) }}"
-                                        class="btn btn-primary mx-2">
+                                       class="btn btn-primary m-2">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger  mx-2"
-                                        onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
+                                    <button class="btn btn-danger  m-2"
+                                            onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </form>
@@ -109,8 +110,9 @@
                         </tr>
                         <div style="display: none">{{ $i++ }}</div>
                     @endforeach
-                </tbody>
-            @endif
-        </table>
+                    </tbody>
+                @endif
+            </table>
+        </div>
     </div>
 @endsection
