@@ -55,14 +55,14 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('alerts*') ? 'active' : '' }}" aria-current="page" href="{{ route('alerts.index') }}">Alerts
+                                <a class="nav-link {{ Request::is('alerts*') ? 'active' : '' }}" aria-current="page" href={{ route('alerts.index') }}>Alerts
                                     <hr>
                                 </a>
 
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('users*') ? 'active' : '' }}" aria-current="page" href="#">Users
+                                <a class="nav-link {{ Request::is('users*') ? 'active' : '' }}" aria-current="page" href={{ route('users.index') }}>Users
                                     <hr>
                                 </a>
                             </li>
