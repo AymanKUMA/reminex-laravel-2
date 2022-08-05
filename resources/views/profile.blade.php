@@ -5,8 +5,11 @@
         <div class="row d-flex justify-content-center">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                        width="150px" src="images/user.png"><span class="font-weight-bold">{{ Auth::user()->name }}</span><span
-                        class="text-black-50">{{ Auth::user()->email }}</span><span></span></div>
+                        width="150px" src="images/user.png"><span class="font-weight-bold">{{ Auth::user()->name }}</span>
+                        <span class="text-black-50">{{ Auth::user()->email }}</span>
+                        <span>Joined at : </span>
+                        <span class="text-black-50 font-weight-bold">{{ Auth::user()->created_at->toFormattedDateString() }}</span>
+                    </div>
             </div>
             <form class="col-md-5 border-right" method="POST" action="{{ route('updateProfile')}}">
                 @csrf
@@ -29,9 +32,6 @@
                                 placeholder="enter an email" value="{{ Auth::user()->email }}"></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">password</label><input type="password"
-                                class="form-control" placeholder="enter your password"></div>
-                    </div>
                     <div class="mt-5 text-center">
                         <button type="submit" class="btn btn-warning profile-button">Edit profile</button>
                     </div>

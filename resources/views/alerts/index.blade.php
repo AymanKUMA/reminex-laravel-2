@@ -97,6 +97,8 @@
                             <td>{{ $alert->created_at }}</td>
                             <td class="">
                                 <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
+                                    @method('DELETE')
+                                    @csrf
                                     <a href="{{ route('alerts.edit', ['alert' => $alert->id]) }}"
                                        class="btn btn-primary m-2" style="padding:4px 8px">
                                         <i class="fa-solid fa-pencil"></i>
