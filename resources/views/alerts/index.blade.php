@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-{{ $i = 1 }}
+<?php $i = 1 ?>
 
 @section('title', 'Alerts')
 
@@ -98,15 +98,47 @@
                             <td class="">
                                 <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
                                     <a href="{{ route('alerts.edit', ['alert' => $alert->id]) }}"
-                                       class="btn btn-primary m-2">
+                                       class="btn btn-primary m-2" style="padding: 8px">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
+
+
+                                    <!-- Button trigger modal -->
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger  m-2"
-                                            onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal{{$i}}" style="padding: 8px">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
+
+
+                                    <div class="position-absolute modal-dialog modal-dialog-centered">
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal{{$i}}" tabindex="-1"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog ">
+                                                <div class="modal-content text-dark">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel ">Delete
+                                                            Alert</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Are you sure you want to delete thi alert ?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cancel
+                                                        </button>
+
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </form>
                             </td>
                         </tr>
