@@ -164,7 +164,7 @@
     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
     <!-- sort Table JS-->
-    <script src="js/sortTable.js"></script>
+    <script src="{{ url('js/sortTable.js') }}"></script>
 
     <!-- Launch the Toasts -->
     <script>

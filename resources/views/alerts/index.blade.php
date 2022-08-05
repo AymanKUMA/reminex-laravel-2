@@ -98,7 +98,7 @@
                             <td class="">
                                 <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
                                     <a href="{{ route('alerts.edit', ['alert' => $alert->id]) }}"
-                                       class="btn btn-primary m-2" style="padding: 8px">
+                                       class="btn btn-primary m-2" style="padding:4px 8px">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
 
@@ -106,8 +106,8 @@
                                     <!-- Button trigger modal -->
                                     @method('DELETE')
                                     @csrf
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal{{$i}}" style="padding: 8px">
+                                    <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal"
+                                            data-bs-target="#exampleModal{{$i}}" style="padding: 4px 8px">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
 

@@ -96,14 +96,12 @@
                                 <form class="" method="POST"
                                       action="{{ route('slides.destroy', ['slide' => $slide->id]) }}">
                                     <a href="{{ route('slides.edit', ['slide' => $slide->id]) }}"
-                                       class="btn btn-primary btn-sm
-                               mx-2">
+                                       class="btn btn-primary m-2">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger btn-sm mx-2"
-                                            onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
+                                    <button class="btn btn-danger m-2" onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </form>
