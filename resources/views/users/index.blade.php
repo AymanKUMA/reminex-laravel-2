@@ -53,6 +53,12 @@
             </tr>
             </thead>
             <tbody>
+            <style>
+                tr td:first-child{
+                    text-align: left;
+                    padding-left: 30px;
+                }
+            </style>
             @if(isset($users) && count($users)!=0)
                 @foreach($users as $user)
                     <tr>
