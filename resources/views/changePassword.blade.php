@@ -26,7 +26,6 @@
                                     </div>
                                 @endif
 
-
                                 @error('oldPassword')
                                     <div class="alert alert-danger" role="alert">
                                         {{ $message }}
