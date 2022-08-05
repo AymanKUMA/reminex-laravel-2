@@ -69,13 +69,13 @@
             <table id="sortTab" class="table table-striped table-dark table-bordered nowrap rounded-3">
                 <thead>
                 <tr>
-                    <th role="button" onclick="sortTable(0)"> ID <i class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(1)"> Created by <i class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(2)" style="width: 180px"> Updated at <i
+                    <th role="button" onclick="sortTable(0)" style="width: 50px"> ID <i class="fa-solid fa-sort fa-2xs"></i></th>
+                    <th role="button" onclick="sortTable(1)" style="width: 120px"> Created by <i class="fa-solid fa-sort fa-2xs"></i></th>
+                    <th role="button" onclick="sortTable(2)" style="width: 160px"> Updated at <i
                             class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(3)" style="width: 180px"> Created at <i
+                    <th role="button" onclick="sortTable(3)" style="width: 160px"> Created at <i
                             class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th class="text-center" style="width: 150px">
+                    <th class="text-center" style="width: 200px">
                         Actions
                     </th>
                 </tr>
@@ -102,15 +102,39 @@
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
 
-
                                     <!-- Button trigger modal -->
-                                    @method('DELETE')
-                                    @csrf
+                                    <button type="button" class="btn btn-success m-2" data-bs-toggle="modal"
+                                            data-bs-target="#viewModal{{$i}}" style="padding: 4px 8px">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
                                     <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal{{$i}}" style="padding: 4px 8px">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
 
+                                    <div class="position-absolute modal-dialog modal-dialog-centered">
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="viewModal{{$i}}" tabindex="-1"
+                                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog ">
+                                                <div class="modal-content text-dark">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel ">Alert {{$i}}</h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        {{$alert->alert}}
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="position-absolute modal-dialog modal-dialog-centered">
                                         <!-- Modal -->
@@ -125,7 +149,8 @@
                                                                 aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        Are you sure you want to delete thi alert ?
+                                                        Are you sure you want to delete this alert ? <br>
+                                                        This opperation cannot be undone 
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
