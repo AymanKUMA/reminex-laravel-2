@@ -4,11 +4,11 @@
 
         <div class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)">
 
-            <div class="col card col-3  me-5 justify-content-center align-items-center">
+            <div class="col card col-3  me-5 justify-content-center align-items-center text-bg-dark">
                 <div class="row justify-content-center align-items-center mt-5">
 
                     <div class="col col-auto py-1 d-flex align-items-center flex-column ">
-                        <div class="fw-bold text-center text-dark fs-5">{{ ucfirst(Auth::user()->name) }}</div>
+                        <div class="fw-bold text-center fs-5">{{ ucfirst(Auth::user()->name) }}</div>
                         <div class="fw-bold text-center text-muted mb-3" style="font-size: small">{{ Auth::user()->email }}</div>
                         <img  class="rounded-circle border border-5 border-warning mb-3" style="width: 110px !important; height: 110px !important;" src="https://github.com/mdo.png"></img>
                     </div>
