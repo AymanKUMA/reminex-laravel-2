@@ -55,39 +55,41 @@
             <tbody>
             @if(isset($users) && count($users)!=0)
                 @foreach($users as $user)
-                    <td>
-                        <img src="https://github.com/mdo.png" alt="" width="48" height="48"
-                             class="rounded-circle border border-warning border-3 m-1">
-                        {{ $user->username }}
-                    </td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->isadmin == 1 ? "Super Admin" : "Admin" }}</td>
-                    <td>{{ $user->created_at }}</td>
-                    <td class="dropdown">
+                    <tr>
+                        <td>
+                            <img src="https://github.com/mdo.png" alt="" width="48" height="48"
+                                 class="rounded-circle border border-warning border-3 m-1">
+                            {{ $user->username }}
+                        </td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->isadmin == 1 ? "Super Admin" : "Admin" }}</td>
+                        <td>{{ $user->created_at }}</td>
+                        <td class="dropdown">
 
-                        <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical " style="color: var(--main-color)"></i>
-                        </a>
+                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis-vertical " style="color: var(--main-color)"></i>
+                            </a>
 
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa-solid fa-eye"></i>See profile
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fa-solid fa-pencil"></i> Edit User</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-danger" href="#">
-                                    <i class="fa-solid fa-trash-can"></i> Delete user
-                                </a>
-                            </li>
-                        </ul>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa-solid fa-eye"></i>See profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa-solid fa-pencil"></i> Edit User</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="#">
+                                        <i class="fa-solid fa-trash-can"></i> Delete user
+                                    </a>
+                                </li>
+                            </ul>
 
 
-                    </td>
+                        </td>
+                    </tr>
 
                 @endforeach
             @else
