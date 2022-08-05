@@ -12,7 +12,7 @@
             @if (session()->has('success_login'))
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
-                        <img src={{ url('/images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
+                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
 
                         <small class="text-muted">just now</small>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
@@ -26,7 +26,7 @@
             @if (session()->has('message'))
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="toast-header">
-                        <img src={{ url('/images/logo_white.svg') }} class="rounded me-auto" alt="Reminex">
+                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
 
                         <small class="text-muted">just now</small>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
@@ -97,12 +97,12 @@
                                       action="{{ route('slides.destroy', ['slide' => $slide->id]) }}">
                                     <a href="{{ route('slides.edit', ['slide' => $slide->id]) }}"
                                        class="btn btn-primary btn-sm
-                               m-2">
+                               mx-2">
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
                                     @method('DELETE')
                                     @csrf
-                                    <button class="btn btn-danger btn-sm m-2"
+                                    <button class="btn btn-danger btn-sm mx-2"
                                             onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
@@ -111,6 +111,12 @@
 
                         </tr>
                     @endforeach
+                @else
+                    <tr>
+                        <td colspan="7" class="p-5">
+                            No Data found
+                        </td>
+                    </tr>
                 @endif
                 </tbody>
             </table>

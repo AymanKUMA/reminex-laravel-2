@@ -6,7 +6,8 @@
 
 @section('content')
 
-    <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true" style="height: calc(100vh - 70px)">
+    <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true"
+         style="height: calc(100vh - 70px)">
         <h1 style="color: var(--main-color);">Alerts</h1>
 
         <div class="toast-container bottom-0 start-0 p-3 ">
@@ -18,7 +19,7 @@
 
                         <small class="text-muted">just now</small>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
+                                aria-label="Close"></button>
                     </div>
                     <div class="toast-body">
                         Veuillez supprimer un alert pour que vous puissiez ajouter un nouveau !!
@@ -32,7 +33,7 @@
 
                         <small class="text-muted">just now</small>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
+                                aria-label="Close"></button>
                     </div>
                     <div class="toast-body">
                         {{ session()->get('message') }}
@@ -59,7 +60,7 @@
             <div class="col-sm-6 p-3 d-flex justify-content-end align-items-center">
                 <label for="find" class="form-label mb-0 me-1">Search:</label>
                 <input id="find" class="form-control me-2 " type="search" style="max-width: 350px"
-                    placeholder="search" aria-label="Search" oninput="findInTable(this.value,'sortTab')">
+                       placeholder="search" aria-label="Search" oninput="findInTable(this.value,'sortTab')">
             </div>
 
         </div>
@@ -79,8 +80,9 @@
                     </th>
                 </tr>
                 </thead>
-                @if (count($alerts) != 0)
-                    <tbody>
+                <tbody>
+                @if ( isset($alerts) && count($alerts) != 0)
+
                     @foreach ($alerts as $alert)
                         <tr>
                             <td>
@@ -110,8 +112,15 @@
                         </tr>
                         <div style="display: none">{{ $i++ }}</div>
                     @endforeach
-                    </tbody>
+                @else
+                    <tr>
+                        <td colspan="5" class="p-5">
+                            No Data found
+                        </td>
+                    </tr>
+
                 @endif
+                </tbody>
             </table>
         </div>
     </div>
