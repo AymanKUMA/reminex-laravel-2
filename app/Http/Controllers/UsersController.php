@@ -15,7 +15,9 @@ class UsersController extends Controller
     public function index()
     {
         //
-        return view('users.index',['users'=>User::all()]);
+        return view('users.index',[
+            'users'=>User::all()
+        ]);
     }
 
     /**
@@ -26,6 +28,7 @@ class UsersController extends Controller
     public function create()
     {
         //
+        return view('users.create')->with('message', 'Fill the fields to add a new user!');
     }
 
     /**
@@ -45,9 +48,12 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($user)
     {
         //
+        return view('users.show',[
+            'user' => User::findOrFail($user),
+        ]);
     }
 
     /**
@@ -56,7 +62,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($user)
     {
         //
     }
@@ -68,7 +74,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $user)
     {
         //
     }
@@ -79,7 +85,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user)
     {
         //
     }
