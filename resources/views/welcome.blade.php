@@ -14,9 +14,8 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="{{ url('images/icon-logo-orange.svg') }}" >
 
-    <!-- Styles -->
-    
     <!--slider js library-->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -36,16 +35,16 @@
         <h1 class="bienv">bienvenue</h1>
     </div>
 
-    <header class="header" style="background-color: rgba(255, 255, 255, 0.5); padding-bottom: 10px;">
+    <header class="header" style="background-color: rgba(255, 255, 255, 0.5); padding-buttom : 10px">
         <nav class="navbar" >
             <a href="#">
-                <marquee width="100%" direction="left" onmouseenter="this.stop();" onmouseleave="this.start();" scrolldelay = "30">
+                <marquee width="100%" direction="left" onmouseenter="this.stop();" onmouseleave="this.start();">
                     @unless(count($alerts) == 0)
                         @foreach ($alerts as $alert)
-                            <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px ; transition" alt=""> {{ $alert->alert }}
+                            <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px ;" alt=""> {{ $alert->alert }}&nbsp;&nbsp;&nbsp;&nbsp;
                         @endforeach
                     @else
-                        &nbsp;&nbsp; this is a sample text that shows the latest notifications about reminex direction &nbsp;&nbsp;
+                        this is a sample text that shows the latest notifications about reminex direction
                     @endunless
                 </marquee>
             </a>
@@ -76,7 +75,7 @@
                         @if ($slide->layout == 'right')
                             <div class="swiper-slide fade">
                                 <div class="box"
-                                    style="background: url({{ url('slides_images/' . $slide->image_path) }}); no-repeat;">
+                                    style="background: url({{ url('slides_images/' . $slide->image_path) }}) no-repeat;">
                                     <div class="content">
                                         <h3>{{ $slide->title }}</h3>
                                         <span>{{ $slide->subtitle }}</span>

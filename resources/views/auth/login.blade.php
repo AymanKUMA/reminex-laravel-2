@@ -13,6 +13,8 @@
     <script src="https://kit.fontawesome.com/3392ac5187.js" crossorigin="anonymous"></script>
 
     <!--slider js library-->
+    <link rel="icon" href="{{ url('images/icon-logo-orange.svg') }}" >
+
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <!-- custom css file link  -->
@@ -61,6 +63,10 @@
         .error>i{
             margin-right: 15px;
         }
+        .holding{
+            display: flex;
+            height: 100vh;
+        }
     </style>
 </head>
 
@@ -68,7 +74,7 @@
     <a href={{ url('/') }} class="arrow animation a">
         <img src={{ url('images/arrow.png') }} alt="" style="width: 30px ">
     </a>
-    <div class="container">
+    <div class="holding">
         <div class="left">
             <div class="loginHeader">
                 <h2 class="animation a1">Bienvenue</h2>
