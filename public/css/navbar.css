@@ -331,3 +331,6 @@ td, th {
     border-right: solid var(--width-triangle) transparent; /* Creates triangle effect */
 
 }
+.dropdown i{
+    padding-right: 10px;
+}
