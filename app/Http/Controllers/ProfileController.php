@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -43,22 +44,29 @@ class ProfileController extends Controller
 
     //profile update
     public function updateProfile(Request $request){
-        
-        dd($request);
 
         $request->validate([
+            'name' => 'required|string|max:255|',
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
         ]);
 
-        if(!Hash::check($request->oldPassword, auth()->user()->password)){
-            return back()->with('error', 'Old password is invalid ');
+        $authUser = Auth::user()->id;
+        $found = DB::select("SELECT * FROM users WHERE id != $authUser AND (email LIKE '$request->email' OR username LIKE '$request->username')");
+
+        if(count($found) != 0){
+            return back()->with('error', 'Username or email already taken !');
         }
 
         $user = User::findOrFail(auth()->user()->id);
-        
-        $user->password =  Hash::make($request->newPassword);
-        
+
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+
         $user->save();
 
-        return back()->with('success', 'Password changed successfully!');
+        return back()->with('success', 'Infromations changed successfully !');
+
     }
 }
