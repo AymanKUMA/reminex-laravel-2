@@ -10,14 +10,30 @@
                     <div class="col col-auto py-1 d-flex align-items-center flex-column ">
                         <div class="fw-bold text-center fs-5">{{ ucfirst(Auth::user()->name) }}</div>
                         <div class="fw-bold text-center text-muted mb-3" style="font-size: small">{{ Auth::user()->email }}</div>
-                        <img  class="rounded-circle border border-5 border-warning mb-3" style="width: 110px !important; height: 110px !important;" src="https://github.com/mdo.png"></img>
+                        <img  id="edit-img-display" class="rounded-circle border border-5 border-warning mb-3" style="width: 110px !important; height: 110px !important;" src="https://github.com/mdo.png"></img>
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-center pb-4">
-                    <label for="fileId">
-                        <button type="button" class="btn btn-primary" >Upload Image</button>
+                    <label for="edit-image">
+                        <button type="button" class="btn btn-primary" id="edit-image-btn"
+                                onclick="document.getElementById('edit-image').click()">Edit Image
+                        </button>
                     </label>
-                    <input id="fileId" value="" type="file" accept="image/png,image/jpg,image/jpeg" name="update_user_img" hidden="hidden">
+                    <input type="file" hidden id="edit-image" onchange="readURL(this)">
+                    <script>
+                        function readURL(input) {
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+
+                                reader.onload = function (e) {
+                                    $('#edit-img-display').attr('src', e.target.result);
+                                };
+
+                                reader.readAsDataURL(input.files[0]);
+
+                            }
+                        }
+                    </script>
                 </div>
                 <h6 class=" card col  col-8 p-3  text-center text-muted"
                     style="font-size: 13px;   background-color:  #F1F4FD;  border: 3px #00000011 solid ;">
