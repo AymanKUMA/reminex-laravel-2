@@ -91,7 +91,7 @@ function msg_warning_alert($error): void
 }
 
 ?>
-{{--<div class="toast-container position-absolute  top-0 start-50 p-4 translate-middle translate-middle-x"--}}
+{{-- <div class="toast-container position-absolute  top-0 start-50 p-4 translate-middle translate-middle-x"--}}
 {{--     style="z-index:5; margin-top: 100px">--}}
 {{--    <!-- Position it: -->--}}
 {{--    <!-- - `.toast-container` for spacing between toasts -->--}}
@@ -122,4 +122,4 @@ function msg_warning_alert($error): void
 {{--    $_SESSION['error']=[];--}}
 {{--    ?>--}}
 
-{{--</div>--}}
+{{--</div> --}}

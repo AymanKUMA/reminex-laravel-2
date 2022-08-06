@@ -29,7 +29,7 @@
                     <div class="fw-bold text-center text-muted mb-3" style="font-size: small">{{ Auth::user()->email }}
                     </div>
                     <img id="edit-img-display" class="rounded-circle border border-5 border-warning mb-3"
-                        style="width: 110px !important; height: 110px !important;" src="https://github.com/mdo.png"></img>
+                        style="width: 110px !important; height: 110px !important;" src="{{ url('/images/user.png') }}"></img>
                 </div>
             </div>
             <div class="row align-items-center justify-content-center pb-4">
