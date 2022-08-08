@@ -63,20 +63,24 @@ class ProfileController extends Controller
             return back()->with('error', 'Username or email already taken !');
         }
 
+        $newProfileImage = "none";
+        
+        if(isset($request->profile_image)){
+            $newProfileImage = str_replace(' ','',$request->username) . '.' . $request->profile_image->extension();
+            $request->profile_image->move(public_path('profile_pics'), $newProfileImage);
+        }
+
         $user = User::findOrFail(auth()->user()->id);
+
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
-
-        if (isset($request->profile_image)) {
-
-            $newProfileImage = str_replace(' ', '', $request->username) . '.' . $request->profile_image->extension();
-            $request->profile_image->move(public_path('profile_pics'), $newProfileImage);
+        if($newProfileImage != "none"){
             $user->profile_image_path = $newProfileImage;
         }
 
-        $user->save();
 
+        $user->save();
         return back()->with('success', 'Infromations changed successfully !');
 
     }
