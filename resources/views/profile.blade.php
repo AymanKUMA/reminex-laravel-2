@@ -39,7 +39,7 @@
                         onclick="document.getElementById('edit-image').click()">Edit Image
                     </button>
                 </label>
-                <input type="file" hidden id="edit-image" onchange="readURL(this)">
+                <input name="profile_image" type="file" hidden id="edit-image" onchange="readURL(this)">
                 <script>
                     function readURL(input) {
                         if (input.files && input.files[0]) {
