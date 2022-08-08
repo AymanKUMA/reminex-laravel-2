@@ -21,7 +21,7 @@
                 </div>
             @endif
         </div>
-        
+
         <div class="col card col-3  me-5 justify-content-center align-items-center text-bg-dark">
             <div class="row justify-content-center align-items-center mt-5">
 
