@@ -11,7 +11,8 @@
 
     </style>
     <div class="container d-flex justify-content-center align-items-center" style="height: calc(100vh - 80px)">
-        <form method="POST" action="" class="card col-8 text-bg-light">
+        <form enctype="multipart/form-data" method="POST" action="{{ route('users.store') }}" class="card col-8 text-bg-light">
+            @csrf
             <div class="card-header " style="background-color: var(--main-color)">
                 <h4>
                     <i class="fa-solid fa-user-plus m-2"></i>  <span style="font-size: 18px !important">Add user</span>
@@ -29,16 +30,17 @@
                         <script>
                             function readURL(input) {
                                 if (input.files && input.files[0]) {
-                                    var reader = new FileReader();
+                                    let reader = new FileReader();
 
                                     reader.onload = function(e) {
                                         $('#edit-img-display').attr('src', e.target.result);
                                     };
 
                                     reader.readAsDataURL(input.files[0]);
-
                                 }
                             }
+
+
                         </script>
 
                     </div>
@@ -56,7 +58,7 @@
                         Role
                         <select type="text" class="form-select" name="isadmin">
                             <option value="0" selected>User</option>
-                            <option value="1" selected>Admin</option>
+                            <option value="1">Admin</option>
                         </select>
                     </label>
 
