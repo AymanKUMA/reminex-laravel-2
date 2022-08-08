@@ -95,6 +95,7 @@
                 <input class="form-field animation a4" placeholder="Password" id="password" type="password"
                     class="form-control @error('password') is-invalid @enderror" name="password" required
                     autocomplete="current-password">
+                    <a class="animation a4" style="font-size: larger" href="{{route('password.request')}}">forgot your password?</a>
                 <button class="animation a6">LOGIN</button>
             </form>
         </div>

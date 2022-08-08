@@ -2,8 +2,9 @@
 
 @section('content')
 
-    <div class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)">
-
+    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)"
+        method="POST" action="{{ route('updateProfile') }}">
+        @csrf
         <div class="toast-container bottom-0 start-0 p-3 ">
             @if (session('success'))
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -64,12 +65,10 @@
 
         </div>
         <div class="col col-md-5">
-            <form class="card " method="POST" action="{{ route('updateProfile') }}">
+            <div class="card">
                 <div class="card-header text-center p-3">
                     Profile Settings
                 </div>
-                @csrf
-
                 <div class="card-body p-5">
                     @if (session('error'))
                         <div class="alert alert-danger" role="alert">
@@ -111,9 +110,9 @@
                     <button type="submit" class="btn btn-warning profile-button ">Edit profile</button>
                 </div>
 
-            </form>
+            </div>
         </div>
 
-    </div>
+    </form>
 
 @endsection
