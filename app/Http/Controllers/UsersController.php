@@ -124,6 +124,7 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->isadmin = $request->isadmin;
         $user->password = Hash::make($request->password);
         if (isset($request->profile_image_path)) {
             $user->profile_image_path = time() . '-' . str_replace(' ', '', $request->username) . '.' . $request->image->extension();
