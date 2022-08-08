@@ -49,6 +49,7 @@ class ProfileController extends Controller
             'name' => 'required|string|max:255|',
             'username' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
+            'profile_image' => 'mimes:jpg,png,jpeg,svg|max:2000'
         ]);
 
         $authUser = Auth::user()->id;
@@ -58,11 +59,15 @@ class ProfileController extends Controller
             return back()->with('error', 'Username or email already taken !');
         }
 
+        $newProfileImage = $request->username . '.' . $request->profile_image->extension();
+        $request->image->move(public_path('profile_pics'), $newProfileImage);
+
         $user = User::findOrFail(auth()->user()->id);
 
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->profile_image_path = $newProfileImage;
 
         $user->save();
 

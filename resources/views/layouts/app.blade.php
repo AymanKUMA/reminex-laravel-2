@@ -58,6 +58,7 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body justify-content-center">
+                        @auth
                         <ul class="navbar-nav ">
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('homes*') ? 'active' : '' }}" aria-current="page"
@@ -88,8 +89,7 @@
                                     <hr>
                                 </a>
                             </li>
-
-
+                        @endauth
                         </ul>
                     </div>
                 </div>
@@ -97,9 +97,6 @@
                     <div class="dropdown user-name">
                         @auth
                             <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
-                        @else
-                            <span class="pe-3 text-light d-sm-flex d-none">Guest</span>
-                        @endauth
                         <a href="#" class="d-block link-dark text-decoration-none"
                             style="width: 48px;height: 48px" data-bs-toggle="dropdown" aria-expanded="false">
 
@@ -135,6 +132,15 @@
                                 </form>
                             </li>
                         </ul>
+                        @else
+                            <span class="pe-3 text-light d-sm-flex d-none">Guest</span>
+                            <a href="#" class="d-block link-dark text-decoration-none"
+                                style="width: 48px;height: 48px" data-bs-toggle="dropdown" aria-expanded="false">
+
+                                <img src={{ url('/images/user.png') }} alt="mdo" width="48" height="48"
+                                    class="rounded-circle border border-light border-3">
+                            </a>
+                        @endauth
                     </div>
 
                     <button class="navbar-toggler mx-2" type="button" data-bs-toggle="offcanvas"
