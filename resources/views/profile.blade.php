@@ -44,7 +44,7 @@
                         onclick="document.getElementById('edit-image').click()">Edit Image
                     </button>
                 </label>
-                <input name="profile_image" type="file" hidden id="edit-image" value="{{url('images/profile.png')}}" onchange="readURL(this)">
+                <input name="profile_image" type="file" hidden id="edit-image" value="" onchange="readURL(this)">
                 <script>
                     function readURL(input) {
                         if (input.files && input.files[0]) {
