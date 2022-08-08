@@ -62,9 +62,8 @@ class ProfileController extends Controller
         $newProfileImage = "none";
         
         if(isset($request->profile_image)){
-            dd($request->profile_image);
             $newProfileImage = str_replace(' ','',$request->username) . '.' . $request->profile_image->extension();
-            $request->image->move(public_path('profile_pics'), $newProfileImage);
+            $request->profile_image->move(public_path('profile_pics'), $newProfileImage);
         }
 
         $user = User::findOrFail(auth()->user()->id);
@@ -73,13 +72,10 @@ class ProfileController extends Controller
         $user->username = $request->username;
         $user->email = $request->email;
         if($newProfileImage != "none"){
-            dd("none");
             $user->profile_image_path = $newProfileImage;
         }
-        
 
         $user->save();
-
         return back()->with('success', 'Infromations changed successfully !');
 
     }

@@ -3,7 +3,7 @@
 @section('content')
 
     <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)"
-        method="POST" action="{{ route('updateProfile') }}">
+        method="POST" action="{{ route('updateProfile') }}" enctype="multipart/form-data">
         @csrf
         <div class="toast-container bottom-0 start-0 p-3 ">
             @if (session('success'))
@@ -39,7 +39,7 @@
                         onclick="document.getElementById('edit-image').click()">Edit Image
                     </button>
                 </label>
-                <input name="profile_image" type="file" hidden id="edit-image" onchange="readURL(this)">
+                <input name="profile_image" type="file" hidden id="edit-image" value="{{url('images/profile.png')}}" onchange="readURL(this)">
                 <script>
                     function readURL(input) {
                         if (input.files && input.files[0]) {
