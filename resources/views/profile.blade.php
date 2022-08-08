@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)"
+    <form  class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)"
         method="POST" action="{{ route('updateProfile') }}">
         @csrf
         <div class="toast-container bottom-0 start-0 p-3 ">
@@ -21,7 +21,7 @@
                 </div>
             @endif
         </div>
-        
+
         <div class="col card col-3  me-5 justify-content-center align-items-center text-bg-dark">
             <div class="row justify-content-center align-items-center mt-5">
 
