@@ -100,7 +100,7 @@
                         <a href="#" class="d-block link-dark text-decoration-none"
                             style="width: 48px;height: 48px" data-bs-toggle="dropdown" aria-expanded="false">
 
-                            <img src={{ url('/images/user.png') }} alt="mdo" width="48" height="48"
+                            <img src="{{ url('/profile_pics/'.Auth::user()->profile_image_path) }}" alt="" width="48" height="48"
                                 class="rounded-circle border border-light border-3">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end text-smaller">
