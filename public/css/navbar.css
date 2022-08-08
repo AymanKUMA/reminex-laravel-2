@@ -311,6 +311,7 @@ td, th {
     vertical-align: middle;
 
 }
+
 .dropdown-menu::before {
     --width-triangle: 10px;
 
@@ -319,18 +320,23 @@ td, th {
     top: 0;
     right: 2.1%; /* position the little arrow */
 
-    margin-left: calc(-1*var(--width-triangle));
-    margin-top:  calc(-1*var(--width-triangle));
+    margin-left: calc(-1 * var(--width-triangle));
+    margin-top: calc(-1 * var(--width-triangle));
 
     width: 0;
     z-index: 1;
     height: 0;
 
-    border-bottom: solid  var(--width-triangle) #FFF; /* Creates the arrow pointing up, to change to a notch instead user border-top */
-    border-left: solid  var(--width-triangle) transparent; /* Creates triangle effect */
+    border-bottom: solid var(--width-triangle) #FFF; /* Creates the arrow pointing up, to change to a notch instead user border-top */
+    border-left: solid var(--width-triangle) transparent; /* Creates triangle effect */
     border-right: solid var(--width-triangle) transparent; /* Creates triangle effect */
 
 }
-.dropdown i{
+
+.dropdown i {
     padding-right: 10px;
+}
+
+.card {
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
 }
