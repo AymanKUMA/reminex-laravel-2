@@ -99,9 +99,13 @@
                             <span class="pe-3 text-light d-sm-flex d-none">{{ Auth::user()->name }}</span>
                         <a href="#" class="d-block link-dark text-decoration-none"
                             style="width: 48px;height: 48px" data-bs-toggle="dropdown" aria-expanded="false">
-
+                        @if(isset(Auth::user()->profile_image_path))
+                            <img src={{ url('/profile_pics' .'/'. Auth::user()->profile_image_path) }} alt="mdo" width="48" height="48"
+                                class="rounded-circle border border-light border-3">
+                        @else
                             <img src={{ url('/images/user.png') }} alt="mdo" width="48" height="48"
                                 class="rounded-circle border border-light border-3">
+                        @endif
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end text-smaller">
                             <li>

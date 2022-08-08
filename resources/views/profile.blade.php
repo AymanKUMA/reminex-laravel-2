@@ -29,9 +29,14 @@
                     <div class="fw-bold text-center fs-5">{{ ucfirst(Auth::user()->name) }}</div>
                     <div class="fw-bold text-center text-muted mb-3" style="font-size: small">{{ Auth::user()->email }}
                     </div>
+                    @if(isset(Auth::user()->profile_image_path))
                     <img id="edit-img-display" class="rounded-circle border border-5 border-warning mb-3"
-                        style="width: 110px !important; height: 110px !important;" src="{{ url('/images/user.png') }}"></img>
-                </div>
+                    style="width: 110px !important; height: 110px !important;" src="{{ url('/profile_pics' .'/'. Auth::user()->profile_image_path) }}">
+                    @else
+                    <img id="edit-img-display" class="rounded-circle border border-5 border-warning mb-3"
+                        style="width: 110px !important; height: 110px !important;" src="{{ url('/images/user.png') }}">
+                    @endif
+                    </div>
             </div>
             <div class="row align-items-center justify-content-center pb-4">
                 <label for="edit-image">
