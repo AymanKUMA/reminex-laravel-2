@@ -71,7 +71,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
-                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                    <a class="dropdown-item" href="{{ route('users.show',['user'=>$user->id]) }}">
                                         <i class="fa-solid fa-eye"></i>See profile
                                     </a>
                                 </li>
