@@ -65,7 +65,7 @@
                             </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->isadmin == 1 ? 'Super Admin' : 'User' }}</td>
-                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->created_at->toFormattedDateString() }}</td>
                             <td class="dropdown">
 
                             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
