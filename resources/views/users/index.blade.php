@@ -8,18 +8,20 @@
         <div class="toast-container bottom-0 start-0 p-3 ">
 
             <!-- Then put toasts within -->
-            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                    <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
+            @if (session()->has('message'))
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
 
-                    <small class="text-muted">just now</small>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                        aria-label="Close"></button>
+                        <small class="text-muted">just now</small>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        {{session()->get('message')}}
+                    </div>
                 </div>
-                <div class="toast-body">
-                    Bonjour {{ Auth::user()->name }}
-                </div>
-            </div>
+            @endif
         </div>
 
         <div class="row">
@@ -29,13 +31,13 @@
                 <input id="find" class="form-control me-2 " type="search" style="max-width: 350px"
                     placeholder="search" aria-label="Search" oninput="findInTable(this.value,'sortTab')">
             </div>
-            <div class="col-sm-6 p-3 d-flex justify-content-end align-items-center">
-                <a href="{{ route('users.create') }}" class="btn btn-primary">
-                    <i class="fa-solid fa-plus"></i> Add user
-                </a>
-            </div>
-
-
+            @if(Auth::user()->isadmin == 1)
+                <div class="col-sm-6 p-3 d-flex justify-content-end align-items-center">
+                    <a href="{{ route('users.create') }}" class="btn btn-primary">
+                        <i class="fa-solid fa-plus"></i> Add user
+                    </a>
+                </div>
+            @endif
         </div>
         <table id="sortTab" class="table table-striped table-bordered table-dark">
             <thead class="rounded table-dark">

@@ -9,6 +9,7 @@
             box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
         }
     </style>
+    <div style="height: 10vh"></div>
     <div class="container d-flex justify-content-center align-items-center" style="height: calc(100vh - 80px)">
         <form enctype="multipart/form-data" method="POST" action="{{ route('users.store') }}" class="card col-8 text-bg-light">
             @csrf

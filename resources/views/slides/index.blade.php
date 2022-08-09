@@ -95,16 +95,18 @@
                             <td>
                                 <form class="" method="POST"
                                       action="{{ route('slides.show', ['slide' => $slide->id]) }}">
-                                    <a href="{{ route('slides.edit', ['slide' => $slide->id]) }}"
-                                       class="btn btn-primary mx-2 btn-sm" >
-                                        <i class="fa-solid fa-pencil "></i>
-                                    </a>
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-danger mx-2 btn-sm"
-                                            onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
+                                    @if(Auth::user()->isadmin == 1 || (Auth::user()->id == $slide->created_by))
+                                        <a href="{{ route('slides.edit', ['slide' => $slide->id]) }}"
+                                        class="btn btn-primary mx-2 btn-sm" >
+                                            <i class="fa-solid fa-pencil "></i>
+                                        </a>
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-danger mx-2 btn-sm"
+                                                onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    @endif
                                 </form>
                             </td>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
@@ -32,6 +33,9 @@ class UsersController extends Controller
     public function create()
     {
         //
+        if(Auth::user()->isadmin == 0){
+            return back();
+        }
         return view('users.create')->with('message', 'Fill the fields to add a new user!');
     }
 
@@ -44,11 +48,14 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+        if(Auth::user()->isadmin == 0){
+            return back();
+        }
 
         $request->validate([
             'name' => 'required|string',
             'username' => 'required|string|unique:users',
-            'email' => 'required|string||unique:users',
+            'email' => 'required|string|email|unique:users',
             'isadmin' => 'required',
             'password' => 'required|string|min:8',
             'passwordConfirmation' => 'required|same:password',
@@ -97,6 +104,9 @@ class UsersController extends Controller
     public function edit($user)
     {
         //
+        if(Auth::user()->isadmin == 0){
+            return back();
+        }
     }
 
     /**

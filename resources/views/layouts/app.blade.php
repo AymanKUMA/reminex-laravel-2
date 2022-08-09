@@ -75,13 +75,14 @@
 
                             </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::is('alerts*') ? 'active' : '' }}" aria-current="page"
-                                    href={{ route('alerts.index') }}>Alerts
-                                    <hr>
-                                </a>
-
-                            </li>
+                            @if(Auth::user()->isadmin == 1)
+                                <li class="nav-item">
+                                    <a class="nav-link {{ Request::is('alerts*') ? 'active' : '' }}" aria-current="page"
+                                        href={{ route('alerts.index') }}>Alerts
+                                        <hr>
+                                    </a>
+                                </li>
+                            @endif
 
                             <li class="nav-item">
                                 <a class="nav-link {{ Request::is('users*') ? 'active' : '' }}" aria-current="page"
