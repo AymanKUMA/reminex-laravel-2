@@ -5,25 +5,26 @@
 @section('content')
 
     <style>
-        .card{
+        .card {
             box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
         }
-
     </style>
     <div class="container d-flex justify-content-center align-items-center" style="height: calc(100vh - 80px)">
         <form method="POST" action="" class="card col-8 text-bg-light">
             <div class="card-header " style="background-color: var(--main-color)">
                 <h4>
-                    <i class="fa-solid fa-user-plus m-2"></i>  <span style="font-size: 18px !important">Add user</span>
+                    <i class="fa-solid fa-user-plus m-2"></i> <span style="font-size: 18px !important">Add user</span>
                 </h4>
             </div>
             <div class="card-body px-5 py-4">
                 <div class="container row">
                     <div class="col-8 mb-3">
-                        <img id="edit-img-display" src={{ url('/images/profile.png') }} alt="mdo" width="100" height="100"
-                             class="rounded-circle border  border-5 me-3" alt="" style="border-color: var(--main-color) !important">
+                        <img id="edit-img-display" src={{ url('/images/profile.png') }} alt="mdo" width="100"
+                            height="100" class="rounded-circle border  border-5 me-3" alt=""
+                            style="border-color: var(--main-color) !important">
                         <label for="edit-image">
-                            <button type="button" class="btn btn-primary" onclick="document.getElementById('edit-image').click()">Upload Image</button>
+                            <button type="button" class="btn btn-primary"
+                                onclick="document.getElementById('edit-image').click()">Upload Image</button>
                         </label>
                         <input type="file" name="image" hidden id="edit-image" onchange="readURL(this)">
                         <script>

@@ -56,13 +56,18 @@
                     @foreach ($users as $user)
                         <tr>
                             <td style="display: flex; align-items: center; justify-content:space-between;">
-                                <img src="https://github.com/mdo.png" alt="" width="48" height="48"
-                                    class="rounded-circle border border-warning border-3 m-1">
+                                @if($user->profile_image_path)
+                                    <img src="{{url('/profile_pics' .'/'. $user->profile_image_path)}}" alt=""  width="48" height="48" 
+                                        class="rounded-circle border border-warning border-3 m-1">
+                                @else
+                                    <img src="{{ url('/images/user.png')}}" alt="" width="48" height="48"
+                                        class="rounded-circle border border-warning border-3 m-1">
+                                @endif
                                 {{ $user->username }}
                             </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->isadmin == 1 ? 'Super Admin' : 'Admin' }}</td>
-                            <td>{{ $user->created_at }}</td>
+                            <td>{{ $user->created_at->toFormattedDateString() }}</td>
                             <td class="dropdown">
 
                                 <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
