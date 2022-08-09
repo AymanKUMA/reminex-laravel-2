@@ -34,3 +34,5 @@ Route::get('/profile',  [ProfileController::class, 'profile'])->middleware('auth
 Route::get('/profile/change-password',  [ProfileController::class, 'changePassword'])->middleware('auth')->name('changePassword');
 Route::post('/profile/change-password',  [ProfileController::class, 'updatePassword'])->middleware('auth')->name('updatePassword');
 Route::post('/profile/update-profile',  [ProfileController::class, 'updateProfile'])->middleware('auth')->name('updateProfile');
+
+Route::get('/page-not-found',function (){ abort(404); });
