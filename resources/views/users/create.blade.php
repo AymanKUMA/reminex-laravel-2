@@ -71,6 +71,10 @@
                         Password <span class="text-danger">*</span>
                         <input type="password" class="form-control" name="password">
                     </label>
+                    <label class="form-label col-12">
+                        Confirm Password <span class="text-danger">*</span>
+                        <input type="password" class="form-control" name="passwordConfirmation">
+                    </label>
                 </div>
 
             </div>

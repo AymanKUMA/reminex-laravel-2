@@ -63,7 +63,7 @@ class ProfileController extends Controller
             return back()->with('error', 'Username or email already taken !');
         }
 
-        $newProfileImage = "none";
+        $newProfileImage = "";
         
         if(isset($request->profile_image)){
             $newProfileImage = str_replace(' ','',$request->username) . '.' . $request->profile_image->extension();
@@ -75,7 +75,7 @@ class ProfileController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
-        if($newProfileImage != "none"){
+        if($newProfileImage != ""){
             $user->profile_image_path = $newProfileImage;
         }
 

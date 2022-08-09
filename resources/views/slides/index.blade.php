@@ -94,7 +94,7 @@
 
                             <td>
                                 <form class="" method="POST"
-                                      action="{{ route('slides.destroy', ['slide' => $slide->id]) }}">
+                                      action="{{ route('slides.show', ['slide' => $slide->id]) }}">
                                     <a href="{{ route('slides.edit', ['slide' => $slide->id]) }}"
                                        class="btn btn-primary mx-2 btn-sm" >
                                         <i class="fa-solid fa-pencil "></i>
