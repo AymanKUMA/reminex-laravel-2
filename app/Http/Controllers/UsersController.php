@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
 const ERROR_USERNAME = "this UserName already Taken";
@@ -66,7 +67,6 @@ class UsersController extends Controller
             back()->with('error', $res);
 
         }
-
     }
 
     /**
@@ -112,9 +112,20 @@ class UsersController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($user)
+    public function destroy($id)
     {
         //
+        $record = User::findOrFail($id);
+        dd($record);
+        $delete_image_path = public_path('profile_pics') . '/' . $record->profilr_image_path;
+        if (File::exists(strval($delete_image_path))) {
+            File::delete(strval($delete_image_path));
+        }
+        if ($record->delete() === false) {
+            back();
+        } else {
+            return redirect()->route('users.index');
+        }
     }
 
     private function prepareUser($request)
