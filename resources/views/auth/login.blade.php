@@ -71,7 +71,7 @@
 </head>
 
 <body>
-    <a href={{ url('/') }} class="arrow animation a">
+    <a href="{{ url('/') }}" class="arrow animation a">
         <img src={{ url('images/arrow.png') }} alt="" style="width: 30px ">
     </a>
     <div class="holding">
@@ -89,13 +89,12 @@
                     </div>
                 @endif
                 @csrf
-                <input class="form-field animation a3" placeholder="Username" id="username" type="username"
-                    class="form-control @error('username') is-invalid @enderror" name="username"
+                <input class="form-field animation a3 form-control @error('username') is-invalid @enderror" placeholder="Username" id="username" type="text"
+                     name="username"
                     value="{{ old('username') }}" required autocomplete="username" autofocus>
-                <input class="form-field animation a4" placeholder="Password" id="password" type="password"
-                    class="form-control @error('password') is-invalid @enderror" name="password" required
+                <input class="form-field animation a4 form-control @error('password') is-invalid @enderror" placeholder="Password" id="password" type="password" name="password" required
                     autocomplete="current-password">
-                    <a class="animation a4" style="font-size: larger" href="{{route('password.request')}}">forgot your password?</a>
+                    <a class="animation a4" style="font-size: larger;text-align: end; margin: 10px 0 5px 0" href="{{route('password.request')}}">forgot your password ?</a>
                 <button class="animation a6">LOGIN</button>
             </form>
         </div>

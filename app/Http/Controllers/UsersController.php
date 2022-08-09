@@ -121,8 +121,7 @@ class UsersController extends Controller
     {
         //
         $record = User::findOrFail($user);
-        dd($record);
-        $delete_image_path = public_path('profile_pics') . '/' . $record->profile_image_path;
+        $delete_image_path = public_path('profile_pics') . '/' . $record->profilr_image_path;
         if (File::exists(strval($delete_image_path))) {
             File::delete(strval($delete_image_path));
         }

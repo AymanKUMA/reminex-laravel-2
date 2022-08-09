@@ -66,40 +66,43 @@
                             <td>{{ $user->created_at }}</td>
                             <td class="dropdown">
 
-                                <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-ellipsis-vertical " style="color: var(--main-color)"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
+                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-ellipsis-vertical " style="color: var(--main-color)"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        <i class="fa-solid fa-eye"></i>See profile
+                                    </a>
+                                </li>
+                                @if ($user->isadmin == 0 && Auth::user()->isadmin == 1)
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('users.show', ['user' => $user->id]) }}">
-                                            <i class="fa-solid fa-eye"></i>See profile
-                                        </a>
+                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                            <i class="fa-solid fa-pencil"></i> Edit User</a>
                                     </li>
-                                    @if ($user->isadmin == 0 && Auth::user()->isadmin == 1)
-                                        <li>
-                                            <a class="dropdown-item" href="{{ route('profile') }}">
-                                                <i class="fa-solid fa-pencil"></i> Edit User</a>
-                                        </li>
-                                        <li>
+                                    <li>
+                                        <form method="post" action="{{ route('users.destroy',['user'=>$user->id]) }}">
                                             @method('DELETE')
                                             @csrf
-                                            <a class="dropdown-item text-danger"
-                                                href="{{ route('users.destroy', ['user' => $user->id]) }}">
+
+                                            <button type="submit" class="dropdown-item text-danger">
                                                 <i class="fa-solid fa-trash-can"></i> Delete user
-                                            </a>
-                                        </li>
-                                    @endif
-                                </ul>
-                            </td>
-                        </tr>
-                    @endforeach
-                @else
-                    <tr>
-                        <td colspan="5" class="p-5">
-                            No Data found
+                                            </button>
+                                        </form>
+
+                                    </li>
+                                @endif
+                            </ul>
                         </td>
                     </tr>
-                @endif
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="5" class="p-5">
+                        No Data found
+                    </td>
+                </tr>
+            @endif
             </tbody>
         </table>
     </div>
