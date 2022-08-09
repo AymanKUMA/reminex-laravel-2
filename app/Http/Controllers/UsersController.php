@@ -112,11 +112,10 @@ class UsersController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($user)
     {
         //
-        $record = User::findOrFail($id);
-        dd($record);
+        $record = User::findOrFail($user);
         $delete_image_path = public_path('profile_pics') . '/' . $record->profilr_image_path;
         if (File::exists(strval($delete_image_path))) {
             File::delete(strval($delete_image_path));

@@ -83,12 +83,15 @@
                                             <i class="fa-solid fa-pencil"></i> Edit User</a>
                                     </li>
                                     <li>
-                                        @method('DELETE')
-                                        @csrf
-                                        <a class="dropdown-item text-danger"
-                                           href="{{ route('users.destroy',['id'=>$user->id]) }}">
-                                            <i class="fa-solid fa-trash-can"></i> Delete user
-                                        </a>
+                                        <form method="post" action="{{ route('users.destroy',['user'=>$user->id]) }}">
+                                            @method('DELETE')
+                                            @csrf
+
+                                            <button type="submit" class="dropdown-item text-danger">
+                                                <i class="fa-solid fa-trash-can"></i> Delete user
+                                            </button>
+                                        </form>
+
                                     </li>
                                 @endif
                             </ul>
