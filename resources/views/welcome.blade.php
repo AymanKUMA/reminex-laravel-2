@@ -10,8 +10,9 @@
     @endif
 
     <title>Reminex News</title>
-
     <!-- font awesome cdn link  -->
+    <!--   font-awsome JS-->
+    <script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" href="{{ url('images/icon-logo-orange.svg') }}">
 
@@ -20,10 +21,9 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
-
 </head>
 
-<body style="background-color: black;">
+<body class="position-relative" style="background-color: black;" id="body">
 
 <!-- intro animation  -->
 
@@ -34,33 +34,32 @@
     <h1 class="bienv">bienvenue</h1>
 </div>
 
-<header class="header" style="background-color: rgba(255, 255, 255, 0.5); padding-buttom : 10px">
-    <nav class="navbar">
-        <a href="#">
-            <marquee width="100%" direction="left" onmouseenter="this.stop();" onmouseleave="this.start();">
-                @unless(count($alerts) == 0)
-                    @foreach ($alerts as $alert)
-                        <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px ;" alt=""> {{ $alert->alert }}&nbsp;&nbsp;&nbsp;&nbsp;
-                    @endforeach
-                @else
-                    this is a sample text that shows the latest notifications about reminex direction
-                @endunless
-            </marquee>
-        </a>
+<header style="background-color: rgba(255, 255, 255, 0.5);">
+    <marquee width="100%" direction="left" onmouseenter="this.stop();" onmouseleave="this.start();"
+             style="font-size: 14px !important">
+        @unless(count($alerts) == 0)
+            @foreach ($alerts as $alert)
+                <img src="{{ url('/images/icon-logo.svg') }}" width="32px" style="width: 32px; margin: 0 5px ;"
+                     alt=""> {{ $alert->alert }}&nbsp;&nbsp;&nbsp;&nbsp;
+            @endforeach
+        @else
+            this is a sample text that shows the latest notifications about reminex direction
+        @endunless
+    </marquee>
+    <nav class="navbar" id="navbar" style="padding: 5px 0">
+        <div class="logoContainer">
+            <a href="#" class="logo"><img src="{{ url('images/logo.svg') }}" alt=""></a>
+            @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                        <a href="{{ route('slides.index') }}" class="button">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="button">Connexion</a>
+                    @endauth
+                </div>
+            @endif
+        </div>
     </nav>
-
-    <div class="logoContainer">
-        <a href="#" class="logo"><img src="{{ url('images/logo.svg') }}" alt=""></a>
-        @if (Route::has('login'))
-            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                @auth
-                    <a href="{{ route('slides.index') }}" class="button">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="button">Connexion</a>
-                @endauth
-            </div>
-        @endif
-    </div>
 </header>
 
 
@@ -114,10 +113,23 @@
 
     </div>
 </section>
+
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"
         integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ=="
         crossorigin="anonymous"></script>
+
+
+<script>
+    const el = document.getElementById('navbar')
+    const query = matchMedia('(display-mode: fullscreen)')
+    const handler = e => {
+        document.getElementById('navbar').style.display = (e.matches ? 'none' : 'block')
+    }
+    handler(query)
+    query.addListener(handler)
+
+</script>
 <script>
     @unless(count($slides) <= 1)
     var swiper = new Swiper(".home-slider", {
@@ -199,3 +211,5 @@
     });
 </script>
 </body>
+
+</html>
