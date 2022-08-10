@@ -4,25 +4,6 @@
 
 @section('content')
 
-    <div class="container py-4 position-relative" aria-live="polite" aria-atomic="true" style="height: calc(100vh - 70px)">
-        <div class="toast-container bottom-0 start-0 p-3 ">
-
-            <!-- Then put toasts within -->
-            @if (session()->has('message'))
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
-
-                        <small class="text-muted">just now</small>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                                aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        {{session()->get('message')}}
-                    </div>
-                </div>
-            @endif
-        </div>
 
         <div class="row">
             <h1 style="color: var(--main-color);">Users</h1>
@@ -107,5 +88,4 @@
             @endif
             </tbody>
         </table>
-    </div>
 @endsection

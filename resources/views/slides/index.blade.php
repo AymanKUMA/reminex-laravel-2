@@ -4,39 +4,38 @@
 <?php $i = 0; ?>
 @section('content')
 
-    <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true" style="height: calc(100vh - 70px)">
-        <div class="toast-container bottom-0 start-0 p-3 ">
+{{--        <div class="toast-container bottom-0 start-0 p-3 ">--}}
 
-            <!-- Then put toasts within -->
-            @if (session()->has('success_login'))
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
+{{--            <!-- Then put toasts within -->--}}
+{{--            @if (session()->has('success_login'))--}}
+{{--                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">--}}
+{{--                    <div class="toast-header">--}}
+{{--                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">--}}
 
-                        <small class="text-muted">just now</small>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        {{ session()->get('success_login') . ' ' . Auth::user()->name }}
-                    </div>
-                </div>
-            @endif
-            @if (session()->has('message'))
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
-                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">
+{{--                        <small class="text-muted">just now</small>--}}
+{{--                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"--}}
+{{--                            aria-label="Close"></button>--}}
+{{--                    </div>--}}
+{{--                    <div class="toast-body">--}}
+{{--                        {{ session()->get('success_login') . ' ' . Auth::user()->name }}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endif--}}
+{{--            @if (session()->has('message'))--}}
+{{--                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">--}}
+{{--                    <div class="toast-header">--}}
+{{--                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">--}}
 
-                        <small class="text-muted">just now</small>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="toast-body">
-                        {{ session()->get('message') }}
-                    </div>
-                </div>
-            @endif
-        </div>
+{{--                        <small class="text-muted">just now</small>--}}
+{{--                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"--}}
+{{--                            aria-label="Close"></button>--}}
+{{--                    </div>--}}
+{{--                    <div class="toast-body">--}}
+{{--                        {{ session()->get('message') }}--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endif--}}
+{{--        </div>--}}
 
 
         <div class="row">
@@ -167,6 +166,4 @@
                 </tbody>
             </table>
         </div>
-
-    </div>
 @endsection
