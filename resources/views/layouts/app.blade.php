@@ -39,6 +39,39 @@
             border-color: var(--main-color);
             box-shadow: none;
         }
+
+        .imagecontainer{
+            height: 60vh; 
+            background-repeat: no-repeat;
+            background-size: cover; 
+            background-position: center;
+        }
+
+        .imagecontainer .textcontainer{
+            height: 60vh; 
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 9%;
+        }
+
+        .imagecontainer .textcontainer.second{
+            justify-content: flex-start;
+        }
+
+        .textcontainer .content{
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 1.3rem;
+            width: 18rem;
+            text-align: left;
+            justify-content: flex-start;
+        }
+        
+        .content h4{
+            text-transform: uppercase;
+            color: var(--main-color);
+        }
+
     </style>
 </head>
 
