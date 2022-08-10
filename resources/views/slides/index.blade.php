@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Slides')
-
+<?php $i = 0 ?>
 @section('content')
 
     <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true"
@@ -66,7 +66,7 @@
                     <th role="button" onclick="sortTable(4)" style="width: 180px"> Create at <i
                             class="fa-solid fa-sort fa-2xs"></i></th>
                     <th role="button" onclick="sortTable(5)"> Create by <i class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th class="text-center" style="width: 120px">
+                    <th class="text-center" style="width: 180px">
                         Actions
                     </th>
                 </tr>
@@ -95,22 +95,49 @@
                             <td>
                                 <form class="" method="POST"
                                       action="{{ route('slides.show', ['slide' => $slide->id]) }}">
+                                    <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal"
+                                            data-bs-target="#viewModal{{$i}}" style="padding: 4px 8px">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
                                     @if(Auth::user()->isadmin == 1 || (Auth::user()->id == $slide->created_by))
                                         <a href="{{ route('slides.edit', ['slide' => $slide->id]) }}"
-                                        class="btn btn-primary mx-2 btn-sm" >
+                                           class="btn btn-primary mx-2" style="padding: 4px 8px">
                                             <i class="fa-solid fa-pencil "></i>
                                         </a>
                                         @method('DELETE')
                                         @csrf
-                                        <button class="btn btn-danger mx-2 btn-sm"
+                                        <button class="btn btn-danger mx-2" style="padding: 4px 8px"
                                                 onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     @endif
                                 </form>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="viewModal{{$i}}" tabindex="-1"
+                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                            <div class="modal-content text-dark">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel ">
+                                                       {{ $slide->title }}</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                        <img class="img-fluid" src=" {{ url('slides_images/'.$slide->image_path) }}" alt="">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary"
+                                                            data-bs-dismiss="modal">Close
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             </td>
 
                         </tr>
+                            <?php $i++; ?>
                     @endforeach
                 @else
                     <tr>
