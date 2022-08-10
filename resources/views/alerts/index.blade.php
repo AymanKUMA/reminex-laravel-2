@@ -97,6 +97,12 @@
                             <td>{{ $alert->created_at }}</td>
                             <td class="">
                                 <form method="POST" action={{ route('alerts.destroy', ['alert' => $alert->id]) }}>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-success m-2" data-bs-toggle="modal"
+                                            data-bs-target="#viewModal{{$i}}" style="padding: 4px 8px">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+
                                     @method('DELETE')
                                     @csrf
                                     <a href="{{ route('alerts.edit', ['alert' => $alert->id]) }}"
@@ -104,21 +110,16 @@
                                         <i class="fa-solid fa-pencil"></i>
                                     </a>
 
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-success m-2" data-bs-toggle="modal"
-                                            data-bs-target="#viewModal{{$i}}" style="padding: 4px 8px">
-                                        <i class="fa-solid fa-eye"></i>
-                                    </button>
+
                                     <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal"
                                             data-bs-target="#exampleModal{{$i}}" style="padding: 4px 8px">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
 
-                                    <div class="position-absolute modal-dialog modal-dialog-centered">
                                         <!-- Modal -->
                                         <div class="modal fade" id="viewModal{{$i}}" tabindex="-1"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog ">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                 <div class="modal-content text-dark">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel ">Alert {{$i}}</h5>
@@ -136,14 +137,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="position-absolute modal-dialog modal-dialog-centered">
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModal{{$i}}" tabindex="-1"
                                              aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog ">
-                                                <div class="modal-content text-dark">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                <div class="modal-content  text-dark">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLabel ">Delete
                                                             Alert</h5>
@@ -152,7 +151,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         Are you sure you want to delete this alert ? <br>
-                                                        This opperation cannot be undone 
+                                                        This opperation cannot be undone
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
@@ -164,8 +163,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                    </div>
                                 </form>
                             </td>
                         </tr>
