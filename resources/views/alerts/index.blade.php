@@ -88,11 +88,13 @@
                             <td>
                                 {{ $i }}
                             </td>
+                            <td>
                             @foreach ($users as $user)
                                 @if ($user->id == $alert->updated_by)
-                                    <td>{{ $user->name }}</td>
+                                    {{ $user->name }}
                                 @endif
                             @endforeach
+                            </td>
                             <td>{{ $alert->updated_at }}</td>
                             <td>{{ $alert->created_at }}</td>
                             <td class="">
