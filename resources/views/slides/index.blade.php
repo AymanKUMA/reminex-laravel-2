@@ -104,12 +104,40 @@
                                             </a>
                                             @method('DELETE')
                                             @csrf
-                                            <button class="btn btn-danger mx-2" style="padding: 4px 8px"
-                                                onclick="return confirm('Do you really want to delete this record ? this opperation cannot be undone')">
+                                            <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal{{$i}}" style="padding: 4px 8px">
                                                 <i class="fa-solid fa-trash-can"></i>
                                             </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModal{{$i}}" tabindex="-1"
+                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                    <div class="modal-content  text-dark">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel ">Delete
+                                                                Slide</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                                    aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure you want to delete this Slide ? <br>
+                                                            This opperation cannot be undone
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Cancel
+                                                            </button>
+
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         @endif
                                     </form>
+
                                     <!-- Modal -->
                                     <div class="modal fade" id="viewModal{{ $i }}" tabindex="-1"
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
