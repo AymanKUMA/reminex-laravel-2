@@ -271,7 +271,7 @@ td {
 
 @media (max-width: 768px) {
     * {
-        font-size: 13px;
+        font-size: 13px !important;
     }
 
     nav .nav-link {
@@ -280,10 +280,6 @@ td {
 
     nav li a hr {
         display: none;
-    }
-    .imageContainer{
-
-
     }
 
 

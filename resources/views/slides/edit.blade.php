@@ -9,7 +9,7 @@
               enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <h3 class="card-header p-3 text-light" style="background-color: var(--main-color);">
+            <h3 class="card-header p-3" style="background-color: var(--main-color);">
                 <i class="fa-regular fa-images mx-1 "></i>Slides
             </h3>
             <div class="card-body p-4 row row-cols-2 justify-content-around align-items-center">

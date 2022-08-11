@@ -7,7 +7,7 @@
     <div id="content-wrapper" class="container-md">
         <form method="POST" action="{{route('slides.store')}}" class="card text-bg-light " enctype="multipart/form-data">
             @csrf
-            <h4 class="card-header p-3 text-light" style="background-color: var(--main-color);">
+            <h4 class="card-header p-3" style="background-color: var(--main-color);">
                 <i class="fa-regular fa-images mx-1"></i> Slides
             </h4>
             <div class="card-body p-4 row row-cols-2 justify-content-around align-items-center">
