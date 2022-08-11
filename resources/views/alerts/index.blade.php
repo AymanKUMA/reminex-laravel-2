@@ -70,10 +70,12 @@
                 <thead>
                 <tr>
                     <th role="button" onclick="sortTable(0)" style="width: 50px"> ID <i class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(1)" style="width: 120px"> Created by <i class="fa-solid fa-sort fa-2xs"></i></th>
+                    <th role="button" onclick="sortTable(1)" style="width: 120px"> updated by <i class="fa-solid fa-sort fa-2xs"></i></th>
                     <th role="button" onclick="sortTable(2)" style="width: 160px"> Updated at <i
                             class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(3)" style="width: 160px"> Created at <i
+                    <th role="button" onclick="sortTable(3)" style="width: 160px"> Created by <i
+                            class="fa-solid fa-sort fa-2xs"></i></th>
+                    <th role="button" onclick="sortTable(4)" style="width: 160px"> Created at <i
                             class="fa-solid fa-sort fa-2xs"></i></th>
                     <th class="text-center" style="width: 200px">
                         Actions

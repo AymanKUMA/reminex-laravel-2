@@ -2,8 +2,11 @@
 
 @section('content')
 
-    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)">
-        <div class="col card col-3  me-8 p-2 justify-content-center align-items-center text-bg-dark">
+    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)"
+    method="POST" action={{ route('users.update', ['user' => $user->id]) }}>
+        @csrf
+        @method('PUT')
+        <div class="col card col-3  me-8 p-4 justify-content-center align-items-center text-bg-dark">
             <div class="row justify-content-center align-items-center mt-5">
                 <div class="col col-auto py-1 d-flex align-items-center flex-column ">
                     <div class="fw-bold text-center fs-5">{{ $user->name }}</div>
@@ -26,8 +29,8 @@
 
         </div>
         <div class="col col-md-5">
-            <div class="card p-4">
-                <div class="card-header text-center">
+            <div class="card">
+                <div class="card-header text-center p-2">
                     {{ $user->name }}'s Profile 
                 </div>
                 <div class="card-body p-3">
@@ -35,27 +38,30 @@
                         <div class="col-md-12">
                             <label class="labels">Name</label>
                             <input type="text" class="form-control" placeholder="full name" name="name"
-                                value="{{ $user->name }}" disabled>
+                                value="{{ $user->name }}" readonly="readonly">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label class="labels">Username</label>
                             <input type="text" class="form-control" placeholder="enter a username" name="username"
-                                value="{{ $user->username }}" disabled>
+                                value="{{ $user->username }}" readonly="readonly">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label class="labels">Email</label>
                             <input type="text" class="form-control" placeholder="enter an email" name="email"
-                                value="{{ $user->email }}" disabled>
+                                value="{{ $user->email }}" readonly="readonly">
                         </div>
                     </div>
                 </div>
+
+                    <div class="card-footer d-flex justify-content-end p-3">
+                        <button class="btn btn-warning profile-button ">Reset password</button>
+                    </div>
+
             </div>
         </div>
-
     </form>
-
 @endsection

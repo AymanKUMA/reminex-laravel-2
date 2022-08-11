@@ -51,7 +51,7 @@ class UsersController extends Controller
 
         $request->validate([
             'name' => 'required|string',
-            'username' => 'required|string|unique:users',
+            'username' => 'required|string|min:4|regex:/^\S*$/u|unique:users',
             'email' => 'required|string|email|unique:users',
             'isadmin' => 'required',
             'password' => 'required|string|min:8',
@@ -120,15 +120,16 @@ class UsersController extends Controller
     public function update(Request $request, $user)
     {
         //
-        $request->validate([
-            'name' => 'required|string',
-            'username' => 'required|string|unique:users',
-            'email' => 'required|string|email|unique:users',
-            'isadmin' => 'required',
-            'password' => 'required|string|min:8',
-            'passwordConfirmation' => 'required|same:password',
-            'image' => 'mimes:png,jpg,jpeg|max:2000',
-        ]);
+        
+        $record = User::findOrFail($user);
+        $newpassword = $record->username . "0000";
+        $record->password = Hash::make($record->username . "0000");
+
+        $record->save();
+        
+        return redirect()
+        ->route('users.index')
+        ->with('message', $record->username . "'s password was reseted successfully! the new password is " . $newpassword . " !");
     }
 
     /**
@@ -144,6 +145,7 @@ class UsersController extends Controller
             return back();
         }
         $record = User::findOrFail($user);
+        $username = $record->username;
         $delete_image_path = public_path('profile_pics') . '/' . $record->profilr_image_path;
         if (File::exists(strval($delete_image_path))) {
             File::delete(strval($delete_image_path));
@@ -151,7 +153,7 @@ class UsersController extends Controller
         if ($record->delete() === false) {
             back();
         } else {
-            return redirect()->route('users.index');
+            return redirect()->route('users.index')->with('message', $username .' was deleted successfully!');
         }
     }
 

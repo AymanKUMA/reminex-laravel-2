@@ -60,7 +60,7 @@
                                 </li>
                                 @if ($user->isadmin == 0 && Auth::user()->isadmin == 1)
                                     <li>
-                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                        <a class="dropdown-item" href="{{ route('users.edit',['user'=>$user->id]) }}">
                                             <i class="fa-solid fa-pencil"></i> Edit User</a>
                                     </li>
                                     <li>
