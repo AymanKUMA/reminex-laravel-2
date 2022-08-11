@@ -48,9 +48,6 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
-        if(Auth::user()->isadmin == 0){
-            return back();
-        }
 
         $request->validate([
             'name' => 'required|string',
@@ -107,6 +104,10 @@ class UsersController extends Controller
         if(Auth::user()->isadmin == 0){
             return back();
         }
+        return view('users.edit',[
+            'user' => User::findOrFail($user),
+        ]);
+
     }
 
     /**
@@ -119,6 +120,15 @@ class UsersController extends Controller
     public function update(Request $request, $user)
     {
         //
+        $request->validate([
+            'name' => 'required|string',
+            'username' => 'required|string|unique:users',
+            'email' => 'required|string|email|unique:users',
+            'isadmin' => 'required',
+            'password' => 'required|string|min:8',
+            'passwordConfirmation' => 'required|same:password',
+            'image' => 'mimes:png,jpg,jpeg|max:2000',
+        ]);
     }
 
     /**
@@ -130,6 +140,9 @@ class UsersController extends Controller
     public function destroy($user)
     {
         //
+        if(Auth::user()->isadmin == 0){
+            return back();
+        }
         $record = User::findOrFail($user);
         $delete_image_path = public_path('profile_pics') . '/' . $record->profilr_image_path;
         if (File::exists(strval($delete_image_path))) {

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container"style="height: 85vh; display:flex; align-items:center; justify-content:center;">
+    <div class="row justify-content-center" style="width: 900px;">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header" style="display: flex; justify-content:space-between; color: var(--main-color)"><h5>{{ __('Reset Password') }}</h5> <img src="{{url('images/icon-logo-orange.svg')}}" alt="" style="width: 50px;"> </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('password.update') }}">
