@@ -4,20 +4,21 @@
 
 @section('content')
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="container">
-
+    <div id="content-wrapper" class="container-md">
         <form method="POST" action="{{route('slides.store')}}" class="card text-bg-light " enctype="multipart/form-data">
             @csrf
-            <h3 class="card-header p-3 bg-dark rounded-2" style="color: var(--main-color);">Slides</h3>
+            <h4 class="card-header p-3 text-light" style="background-color: var(--main-color);">
+                <i class="fa-regular fa-images mx-1"></i> Slides
+            </h4>
             <div class="card-body p-4 row row-cols-2 justify-content-around align-items-center">
-                <div class="col col-5">
+                <div class="col col-md-5 col-12 my-2">
                     <label class="form-label">
                         Image <span style="color: red">* </span> :
                     </label>
-                    <div class="imageContainer m-auto rounded-4" style="height: 300px; overflow-y:hidden">
+                    <div class="imageContainer m-auto rounded-4" style="max-height: 300px; overflow-y:hidden">
                         <img src="#" id="chosenImg" class="img-fluid rounded-4" alt="">
 
-                        <label for="image" id="add-image"
+                        <label for="image" id="add-image" role="button"
                                class="d-flex flex-column justify-content-center align-items-center">
 
                             <img role="button" src="{{ url('/images/add-image.svg') }}" alt="add-image">
@@ -45,7 +46,7 @@
 
 
                 </div>
-                <div class="col col-5">
+                <div class="col col-md-5 col-12 my-2" >
                     <div class="row row-cols-2">
                         <div class="col col-md-6 col-12 mb-3">
                             <label for="title" class="form-label">Titre : <span style="color: red">*</span> </label>
@@ -97,14 +98,10 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
-
             <div class="card-footer">
                 <div class="d-flex justify-content-end">
-                    <input class="button" type="submit" name="addSlide" value="ajouter">
+                    <input class="button" type="submit" name="addSlide" value="Save">
                 </div>
             </div>
         </form>

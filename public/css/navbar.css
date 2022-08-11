@@ -139,10 +139,12 @@ nav li a hr {
     align-items: center;
 
     border: 2px dodgerblue dashed;
-    min-width: 200px;
-    min-height: 200px;
+
+    padding: 10px;
     max-width: 500px;
-    max-height: 500px;
+    max-height: 250px;
+    min-height: 200px;
+    min-width: 150px;
     margin: 0;
 
 
@@ -166,7 +168,10 @@ nav li a hr {
 }
 
 #add-image img {
-    max-width: 90px;
+    max-width: 100px;
+    max-height: 100px;
+    min-height: 100px;
+    min-width: 100px;
     padding-bottom: 10px;
 }
 
@@ -275,6 +280,10 @@ td {
 
     nav li a hr {
         display: none;
+    }
+    .imageContainer{
+
+
     }
 
 
