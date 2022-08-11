@@ -73,9 +73,11 @@ class UsersController extends Controller
                 $user->profile_image_path = "";
             }
 
-            $user->save();
-            return redirect()->route('users.index')->with('message', 'User added successfully !');
-    
+            if($user->save()) {
+                return redirect()->route('users.index')->with('message', 'User added successfully !');
+            }else {
+                return back()->with('error', 'user can\'t be added due to an error');
+            }
     }
 
     /**
@@ -102,7 +104,7 @@ class UsersController extends Controller
     {
         //
         if(Auth::user()->isadmin == 0){
-            return back();
+            return back()->with('error','Only Admin could edit users account');
         }
         return view('users.edit',[
             'user' => User::findOrFail($user),
@@ -141,7 +143,7 @@ class UsersController extends Controller
     {
         //
         if(Auth::user()->isadmin == 0){
-            return back();
+            return back()->with('error',"Only Admin could delete user account");
         }
         $record = User::findOrFail($user);
         $delete_image_path = public_path('profile_pics') . '/' . $record->profilr_image_path;
@@ -149,9 +151,9 @@ class UsersController extends Controller
             File::delete(strval($delete_image_path));
         }
         if ($record->delete() === false) {
-            back();
+          return  back()->with('error','user can\'t be deleted due to an Error');
         } else {
-            return redirect()->route('users.index');
+            return redirect()->route('users.index')->with('message',"User has been deleted With success");
         }
     }
 

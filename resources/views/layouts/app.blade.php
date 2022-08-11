@@ -200,6 +200,9 @@
             {{ msg_toast_warning("Veuillez supprimer un alert pour que vous puissiez ajouter un nouveau") }}
 
         @endif
+        @if(session()->has('error'))
+            {{ msg_toast_error(session()->get('error')) }}
+        @endif
         @if (session()->has('success_login'))
             {{ msg_toast_success(session()->get('success_login') .' '. Auth::user()->name ) }}
         @endif
