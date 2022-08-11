@@ -193,9 +193,11 @@
     </nav>
     <div style="height: 70px"></div>
 </header>
-<div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true"
+
+
+<div class="py-4 position-relative" aria-live="polite" aria-atomic="true"
      style="height: calc(100vh - 70px)">
-    <div class="toast-container bottom-0 start-0 p-3 ">
+    <div class="toast-container bottom-0 end-0 p-5">
         @if(isset($alerts) && count($alerts)>=4)
             {{ msg_toast_warning("Veuillez supprimer un alert pour que vous puissiez ajouter un nouveau") }}
 
@@ -210,7 +212,10 @@
             {{ msg_toast_success(session()->get('message')) }}
         @endif
     </div>
-    @yield('content')
+    <div class="container-md">
+        @yield('content')
+    </div>
+
 </div>
 
 <!-- Bootstrap JS-->
