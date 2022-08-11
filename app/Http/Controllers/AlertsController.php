@@ -113,6 +113,6 @@ class AlertsController extends Controller
         //
         $record = Alert::findOrFail($alert);
         $record->delete();
-        return redirect()->route('alerts.index');
+        return redirect()->route('alerts.index')->with('message', 'Alert deleted successfully !');
     }
 }

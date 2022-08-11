@@ -127,7 +127,7 @@ class SlidesController extends Controller
         $record->layout = strip_tags($request->input('layout'));
         $record->save();
 
-        return redirect()->route('slides.index');
+        return redirect()->route('slides.index')->with('message', 'slide modified successfully !');
     }
 
     /**
@@ -145,6 +145,6 @@ class SlidesController extends Controller
             File::delete(strval($delete_image_path));
         }
         $record->delete();
-        return redirect()->route('slides.index');
+        return redirect()->route('slides.index')->with('message', 'slide deleted successfully !');
     }
 }
