@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true"
-         style="height: calc(100vh - 70px)">
+         style="height: calc(100vh - 100px)">
         <h1 style="color: var(--main-color);">Alerts</h1>
 
 {{--        <div class="toast-container bottom-0 start-0 p-3 ">--}}
@@ -47,7 +47,7 @@
             @if (count($alerts) < 4)
                 <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
                     <a href="{{ route('alerts.create') }}" class="btn btn-success">
-                        <i class="fa-solid fa-plus me-1"></i>Ajouter
+                        <i class="fa-solid fa-plus me-1"></i>Add alert
                     </a>
                 </div>
             @else
@@ -70,12 +70,10 @@
                 <thead>
                 <tr>
                     <th role="button" onclick="sortTable(0)" style="width: 50px"> ID <i class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(1)" style="width: 120px"> updated by <i class="fa-solid fa-sort fa-2xs"></i></th>
+                    <th role="button" onclick="sortTable(1)" style="width: 120px"> Created by <i class="fa-solid fa-sort fa-2xs"></i></th>
                     <th role="button" onclick="sortTable(2)" style="width: 160px"> Updated at <i
                             class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(3)" style="width: 160px"> Created by <i
-                            class="fa-solid fa-sort fa-2xs"></i></th>
-                    <th role="button" onclick="sortTable(4)" style="width: 160px"> Created at <i
+                    <th role="button" onclick="sortTable(3)" style="width: 160px"> Created at <i
                             class="fa-solid fa-sort fa-2xs"></i></th>
                     <th class="text-center" style="width: 200px">
                         Actions

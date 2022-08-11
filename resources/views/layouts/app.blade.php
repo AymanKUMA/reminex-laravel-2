@@ -206,7 +206,7 @@
 
         @endif
         @if(isset($alerts) && count($alerts)>=4)
-            {{ msg_toast_warning("Veuillez supprimer un alert pour que vous puissiez ajouter un nouveau") }}
+            {{ msg_toast_warning("You have reached the maximum number of alerts !") }}
 
         @endif
         @if(session()->has('error'))

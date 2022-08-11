@@ -37,9 +37,10 @@
 {{--            @endif--}}
 {{--        </div>--}}
 
-
+        <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true"
+        style="height: calc(100vh - 100px)">
+        <h1 style="color: var(--main-color);">Slides</h1>
         <div class="row">
-            <h1 style="color: var(--main-color);">Slides</h1>
             <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
                 <a href="{{ route('slides.create') }}" class="btn btn-success">
                     <i class="fa-solid fa-plus"></i> Add slider
@@ -55,7 +56,7 @@
             <table id="sortTab" class="table table-striped table-dark table-bordered nowrap rounded-3">
                 <thead>
                     <tr>
-                        <th role="button" onclick="sortTable(0)"> Titre <i class="fa-solid fa-sort fa-2xs"></i></th>
+                        <th role="button" onclick="sortTable(0)"> Title <i class="fa-solid fa-sort fa-2xs"></i></th>
                         <th role="button" onclick="sortTable(1)" style="width: 140px"> Image Position <i
                                 class="fa-solid fa-sort fa-2xs"></i></th>
                         <th role="button" onclick="sortTable(2)" style="width: 180px">last Update <i

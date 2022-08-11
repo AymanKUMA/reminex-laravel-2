@@ -153,9 +153,9 @@ class UsersController extends Controller
             File::delete(strval($delete_image_path));
         }
         if ($record->delete() === false) {
-          return  back()->with('error','user can\'t be deleted due to an Error');
+          return  back()->with('error'," user can't be deleted due to an Error !");
         } else {
-            return redirect()->route('users.index')->with('message', $username .' was deleted successfully!')->with('message',"User has been deleted With success");
+            return redirect()->route('users.index')->with('message', $username . " has been deleted successfully !");
         }
     }
 
