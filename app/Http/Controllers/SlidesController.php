@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class SlidesController extends Controller
@@ -52,7 +52,6 @@ class SlidesController extends Controller
             'layout' => 'required',
             'image' => 'required|mimes:jpg,png,jpeg|max:6000',
         ]);
-
         $newImageName = time() . '-' . str_replace(' ','',$request->title) . '.' . $request->image->extension();
         $request->image->move(public_path('slides_images'), $newImageName);
 
@@ -66,9 +65,10 @@ class SlidesController extends Controller
         $slide->layout = strip_tags($request->input('layout'));
         $slide->image_path = $newImageName;
 
-        $slide->save();
-
-        return redirect()->route('slides.index')->with('message', 'slide added successfully !');
+        if($slide->save())
+            return redirect()->route('slides.index')->with('message', 'slide added successfully !');
+        else
+            return back()->with('error','Slide can\'t be Saved due to an error ');
     }
 
     /**
@@ -115,7 +115,7 @@ class SlidesController extends Controller
 
         $record = Slide::findOrFail($slide);
 
-        if(isset($request->image)){   
+        if(isset($request->image)){
             $request->image->move(public_path('slides_images'), $record->image_path);
         }
 
@@ -125,9 +125,11 @@ class SlidesController extends Controller
         $record->description = strip_tags($request->input('description'));
         $record->updated_by = Auth::user()->id;
         $record->layout = strip_tags($request->input('layout'));
-        $record->save();
 
-        return redirect()->route('slides.index')->with('message', 'slide modified successfully !');
+        if($record->save())
+            return redirect()->route('slides.index')->with('message', 'slide modified successfully !');
+        else
+            return back()->with('error',"Slide can't be updated due an error");
     }
 
     /**
@@ -144,7 +146,10 @@ class SlidesController extends Controller
         if(File::exists(strval($delete_image_path))) {
             File::delete(strval($delete_image_path));
         }
-        $record->delete();
-        return redirect()->route('slides.index')->with('message', 'slide deleted successfully !');
+        if($record->delete())
+            return redirect()->route('slides.index')->with('message', 'slide deleted successfully !');
+        else{
+            return back()->with('error',"Slide can't be deleted due to an error");
+        }
     }
 }

@@ -50,11 +50,12 @@ class AlertsController extends Controller
         $alert = new Alert();
 
         $alert->alert = strip_tags($request->input('alert'));
-        $alert->updated_by = Auth::user()->id; 
+        $alert->updated_by = Auth::user()->id;
 
-        $alert->save();
-
-        return redirect()->route('alerts.index')->with('message', 'Alert added successfully !');
+        if($alert->save())
+            return redirect()->route('alerts.index')->with('message', 'Alert added successfully !');
+        else
+            return back()->with('error',"Alert can\'t be saved due to an error ");
     }
 
     /**
@@ -81,7 +82,7 @@ class AlertsController extends Controller
             'alert' => Alert::findOrFail($alert)
         ]);
     }
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -96,10 +97,13 @@ class AlertsController extends Controller
         $record = Alert::findOrFail($alert);
 
         $record->alert = strip_tags($request->input('alert'));
-        $record->updated_by = Auth::user()->id; 
+        $record->updated_by = Auth::user()->id;
 
-        $record->save();
-        return redirect()->route('alerts.index');
+        if($record->save())
+            return redirect()->route('alerts.index');
+        else
+            return back()->with('error','Alert can\'t be save due to an error');
+
     }
 
     /**
@@ -112,7 +116,10 @@ class AlertsController extends Controller
     {
         //
         $record = Alert::findOrFail($alert);
-        $record->delete();
-        return redirect()->route('alerts.index')->with('message', 'Alert deleted successfully !');
+
+        if($record->delete())
+            return redirect()->route('alerts.index')->with('message', 'Alert deleted successfully !');
+        else
+            return back()->with('error','alerts can\'t be deleted due to an error');
     }
 }
