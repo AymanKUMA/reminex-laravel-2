@@ -40,14 +40,14 @@
             box-shadow: none;
         }
 
-        .imagecontainer{
+        .imagecontainer {
             height: 60vh;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
         }
 
-        .imagecontainer .textcontainer{
+        .imagecontainer .textcontainer {
             height: 60vh;
             display: flex;
             align-items: center;
@@ -55,11 +55,11 @@
             padding: 10px 9%;
         }
 
-        .imagecontainer .textcontainer.second{
+        .imagecontainer .textcontainer.second {
             justify-content: flex-start;
         }
 
-        .textcontainer .content{
+        .textcontainer .content {
             background-color: rgba(255, 255, 255, 0.5);
             padding: 1.3rem;
             width: 18rem;
@@ -67,7 +67,7 @@
             justify-content: flex-start;
         }
 
-        .content h4{
+        .content h4 {
             text-transform: uppercase;
             color: var(--main-color);
         }
@@ -198,6 +198,13 @@
 <div class="py-4 position-relative" aria-live="polite" aria-atomic="true"
      style="height: calc(100vh - 70px)">
     <div class="toast-container bottom-0 end-0 p-5">
+        @if ($errors->any())
+
+            @foreach ($errors->all() as $error)
+                {{ msg_toast_error($error) }}
+            @endforeach
+
+        @endif
         @if(isset($alerts) && count($alerts)>=4)
             {{ msg_toast_warning("Veuillez supprimer un alert pour que vous puissiez ajouter un nouveau") }}
 
