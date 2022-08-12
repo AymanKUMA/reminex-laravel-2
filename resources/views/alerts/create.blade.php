@@ -8,7 +8,7 @@
 
     <form method="POST" action="{{ route('alerts.store') }}" class="container col col-md-6 " enctype="multipart/form-data">
         @csrf
-        <h1 style="color: var(--main-color);">Alerts</h1>
+        <h2 style="color: var(--main-color);"><i class="fa-solid fa-bell me-3"></i>Alerts</h2>
         <div class="row row-cols-2 justify-content-center align-items-center">
             <div class="col col-12 mb-3">
                 <label for="description" class="form-label">

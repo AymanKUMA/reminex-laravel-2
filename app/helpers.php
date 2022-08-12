@@ -9,7 +9,7 @@
 function msg_toast_error($string): void
 {
     if (empty($string)) return;
-    echo '<div class="toast align-items-center text-light bg-danger border-0 w-auto" data-bs-animation="true" data-bs-autohide="true" role="alert" aria-live="assertive" aria-atomic="true">
+    echo '<div class="toast align-items-center text-light bg-danger border-0 w-auto" data-bs-animation="true" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                     <div class="toast-body d-flex justify-content-center align-items-center" >
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -33,7 +33,7 @@ function msg_toast_error($string): void
 function msg_toast_warning(string $string): void
 {
     if (empty($string)) return;
-    echo '<div class="toast align-items-center text-dark bg-warning border-0" data-bs-animation="true" data-bs-autohide="true" role="alert" aria-live="assertive" aria-atomic="true">
+    echo '<div class="toast align-items-center text-dark bg-warning border-0" data-bs-animation="true" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                     <div class="toast-body d-flex justify-content-center align-items-center">
                        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -57,7 +57,7 @@ function msg_toast_warning(string $string): void
 function msg_toast_success(string $string): void
 {
     if (empty($string)) return;
-    echo '<div class="toast align-items-center text-light bg-success border-0" data-bs-animation="true" data-bs-autohide="true" role="alert" aria-live="assertive" aria-atomic="true">
+    echo '<div class="toast align-items-center text-light bg-success border-0" data-bs-animation="true" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                     <div class="toast-body d-flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -66,7 +66,7 @@ function msg_toast_success(string $string): void
                               </symbol>' .
         '
                         </svg>
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                         ' . $string . '
                     </div>
                     <button type="button" class="btn-close  me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>

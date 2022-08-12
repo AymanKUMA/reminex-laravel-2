@@ -78,7 +78,7 @@
         <div class="left">
             <div class="loginHeader">
                 <h2 class="animation a1">Bienvenue</h2>
-                <h4 class="animation a2">Connecter a votre compte admin</h4>
+                <h4 class="animation a2">Connecter a votre compte</h4>
             </div>
 
             <form method="POST" action={{ route('login') }} class="form">

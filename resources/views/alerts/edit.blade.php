@@ -11,7 +11,7 @@
         enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <h1 style="color: var(--main-color);">Alerts</h1>
+        <h1 style="color: var(--main-color);"><i class="fa-solid fa-bell me-3"></i>Alerts</h1>
         <div class="row row-cols-2 justify-content-center align-items-center">
             <div class="col col-12 mb-3">
                 <label for="description" class="form-label">
