@@ -15,7 +15,7 @@
     --update-background: #14C38E;
 
     --add-color: white;
-    --add-background: #0D6EFD;
+    --primary: #0D6EFD;
 
 }
 
@@ -141,8 +141,8 @@ nav li a hr {
     border: 2px dodgerblue dashed;
 
     padding: 10px;
-    max-width: 500px;
-    max-height: 250px;
+    max-width: 400px;
+    max-height: 200px;
     min-height: 200px;
     min-width: 150px;
     margin: 0;
@@ -343,5 +343,33 @@ td, th {
 }
 
 .card {
-    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.2) !important;
+
+}
+.card{
+    border-radius: 10px !important;
+}
+.card-header{
+    border-start-start-radius: 10px !important;
+    border-start-end-radius: 10px !important;
+}
+.card-footer{
+    border-end-start-radius: 10px !important;
+    border-end-end-radius: 10px !important;
+}
+
+.infoBox {
+    padding: 10px;
+    margin-top: 20px;
+    border: 2px var(--primary) solid;
+    border-left: 4px var(--primary) solid !important;
+    border-radius: 0.8rem;
+    font-size: 13px;
+}
+.bg-success ,.btn-success{
+    background-color: #42ca8b !important;
+    border-color: #42ca8b !important;
+}
+.toast{
+    text-transform: capitalize;
 }

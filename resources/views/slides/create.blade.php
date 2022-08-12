@@ -4,12 +4,13 @@
 
 @section('content')
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="container-md">
+    <div id="content-wrapper" class="container-md col col-lg-8 col-12">
         <form method="POST" action="{{route('slides.store')}}" class="card text-bg-light " enctype="multipart/form-data">
             @csrf
-            <h4 class="card-header p-3" style="background-color: var(--main-color);">
-                <i class="fa-regular fa-images mx-1"></i> Slides
-            </h4>
+            <div class="card-header bg-dark p-3" style="color: var(--main-color);">
+                <i class="fa-regular fa-images mx-2 fa-lg"></i>
+                <span class="fs-5">Slides </span>
+            </div>
             <div class="card-body p-4 row row-cols-2 justify-content-around align-items-center">
                 <div class="col col-md-5 col-12 my-2">
                     <label class="form-label">
@@ -74,7 +75,7 @@
                                     </div>
                                     <div class="row m-3">
                                         <label class="form-check-label" style="text-align: center">
-                                            Gauche
+                                            <div>Gauche</div>
                                             <input type="radio" name="layout" class="form-check-input"
                                                    value="left">
                                         </label>
@@ -86,7 +87,7 @@
                                     </div>
                                     <div class="row m-3">
                                         <label style="text-align: center" class="form-check-label">
-                                            Droite
+                                            <div>Droite</div>
                                             <input type="radio" name="layout" class="form-check-input"
                                                    value="right" checked>
                                         </label>

@@ -49,9 +49,9 @@
                             <td>{{ $user->created_at->toFormattedDateString() }}</td>
                             <td class="dropdown">
 
-                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-ellipsis-vertical " style="color: var(--main-color)"></i>
-                            </a>
+                            </div>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
                                     <a class="dropdown-item" href="{{ route('users.show',['user'=>$user->id]) }}">
