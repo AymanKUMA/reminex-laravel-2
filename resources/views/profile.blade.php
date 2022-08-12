@@ -86,9 +86,6 @@
                             <p class="alert alert-danger">{{ $err }}</p>
                         @endforeach
                     @endif
-                    {{-- <div class="d-flex justify-content-between align-items-center mb-3"> --}}
-                    {{-- <h4 class="text-right" style="color: var(--main-color);">Profile Settings</h4> --}}
-                    {{-- </div> --}}
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label class="labels">Name</label>

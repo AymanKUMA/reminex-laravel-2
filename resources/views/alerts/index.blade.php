@@ -9,40 +9,6 @@
     <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true"
          style="height: calc(100vh - 100px)">
         <h1 style="color: var(--main-color);">Alerts</h1>
-
-{{--        <div class="toast-container bottom-0 start-0 p-3 ">--}}
-{{--            @if (count($alerts) >= 4)--}}
-{{--                <!-- Then put toasts within -->--}}
-{{--                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">--}}
-{{--                    <div class="toast-header">--}}
-{{--                        <img src="{{ url('images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">--}}
-
-{{--                        <small class="text-muted">just now</small>--}}
-{{--                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"--}}
-{{--                                aria-label="Close"></button>--}}
-{{--                    </div>--}}
-{{--                    <div class="toast-body">--}}
-{{--                        Veuillez supprimer un alert pour que vous puissiez ajouter un nouveau !!--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endif--}}
-{{--            @if (session()->has('message'))--}}
-{{--                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">--}}
-{{--                    <div class="toast-header">--}}
-{{--                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">--}}
-
-{{--                        <small class="text-muted">just now</small>--}}
-{{--                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"--}}
-{{--                                aria-label="Close"></button>--}}
-{{--                    </div>--}}
-{{--                    <div class="toast-body">--}}
-{{--                        {{ session()->get('message') }}--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endif--}}
-{{--        </div>--}}
-
-
         <div class="row">
             @if (count($alerts) < 4)
                 <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">

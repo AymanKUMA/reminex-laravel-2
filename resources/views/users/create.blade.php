@@ -20,15 +20,15 @@
             </div>
             <div class="card-body px-md-5 py-4">
                 <div class="container-md row">
-                    <div class="col-md-8 col-12 mb-3">
+                    <div class="col-12 mb-3">
                         <div class="row justify-content-start">
-                            <div class="col">
+                            <div class="col col-auto">
                                 <img id="edit-img-display" src={{ url('/images/profile.png') }} alt="mdo" width="100" height="100"
                                       class="rounded-circle border  border-5" alt=""
                                      style="border-color: var(--main-color) !important">
                             </div>
 
-                            <label for="edit-image" class="col d-flex justify-content-center align-items-center" >
+                            <label for="edit-image" class="col col-auto d-flex justify-content-center align-items-center" >
                                 <button type="button" class="btn btn-primary"
                                         onclick="document.getElementById('edit-image').click()">Upload Image</button>
                             </label>

@@ -4,40 +4,6 @@
 <?php $i = 0; ?>
 @section('content')
 
-    {{--        <div class="toast-container bottom-0 start-0 p-3 ">--}}
-
-    {{--            <!-- Then put toasts within -->--}}
-    {{--            @if (session()->has('success_login'))--}}
-    {{--                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">--}}
-    {{--                    <div class="toast-header">--}}
-    {{--                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">--}}
-
-    {{--                        <small class="text-muted">just now</small>--}}
-    {{--                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"--}}
-    {{--                            aria-label="Close"></button>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="toast-body">--}}
-    {{--                        {{ session()->get('success_login') . ' ' . Auth::user()->name }}--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            @endif--}}
-    {{--            @if (session()->has('message'))--}}
-    {{--                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">--}}
-    {{--                    <div class="toast-header">--}}
-    {{--                        <img src="{{ url('/images/logo_white.svg') }}" class="rounded me-auto" alt="Reminex">--}}
-
-    {{--                        <small class="text-muted">just now</small>--}}
-    {{--                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"--}}
-    {{--                            aria-label="Close"></button>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="toast-body">--}}
-    {{--                        {{ session()->get('message') }}--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--            @endif--}}
-    {{--        </div>--}}
-
-
     <div class="row">
         <h1 style="color: var(--main-color);">Slides</h1>
         <div class="col-sm-6 p-3 d-flex justify-content-start align-items-center">
@@ -173,7 +139,6 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            {{-- <img class="img-fluid" src=" {{ url('slides_images/'.$slide->image_path) }}" alt=""> --}}
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary"
