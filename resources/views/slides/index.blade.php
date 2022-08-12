@@ -3,6 +3,7 @@
 @section('title', 'Slides')
 <?php $i = 0; ?>
 @section('content')
+<div class="m-auto">
 
     <div class="row">
         <h1 style="color: var(--main-color);">Slides</h1>
@@ -163,4 +164,5 @@
             </tbody>
         </table>
     </div>
+</div>
 @endsection

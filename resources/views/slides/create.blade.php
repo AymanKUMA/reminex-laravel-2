@@ -8,7 +8,7 @@
         <form method="POST" action="{{route('slides.store')}}" class="card text-bg-light " enctype="multipart/form-data">
             @csrf
             <div class="card-header bg-dark p-3" style="color: var(--main-color);">
-                <i class="fa-regular fa-images mx-2 fa-lg"></i>
+                <i class="fa-solid fa-plus fa-lg mx-2"></i>
                 <span class="fs-5">Slides </span>
             </div>
             <div class="card-body p-4 row row-cols-2 justify-content-around align-items-center">
@@ -73,9 +73,9 @@
                                     <div class="row justify-content-center">
                                         <img src={{ url('/images/left.svg') }} alt="gauche" style="width: 200px" alt="">
                                     </div>
-                                    <div class="row m-3">
+                                    <div class="row mt-3">
                                         <label class="form-check-label" style="text-align: center">
-                                            <div>Gauche</div>
+                                            <span>Gauche</span>
                                             <input type="radio" name="layout" class="form-check-input"
                                                    value="left">
                                         </label>
@@ -85,9 +85,9 @@
                                     <div class="row justify-content-center">
                                         <img src={{ url('/images/right.svg') }} alt="right" style="width: 200px" alt="">
                                     </div>
-                                    <div class="row m-3">
+                                    <div class="row mt-3">
                                         <label style="text-align: center" class="form-check-label">
-                                            <div>Droite</div>
+                                            <span>Droite</span>
                                             <input type="radio" name="layout" class="form-check-input"
                                                    value="right" checked>
                                         </label>

@@ -370,6 +370,6 @@ td, th {
     background-color: #42ca8b !important;
     border-color: #42ca8b !important;
 }
-.toast{
+.toast-body{
     text-transform: capitalize;
 }

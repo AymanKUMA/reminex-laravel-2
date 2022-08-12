@@ -2,11 +2,11 @@
 
 @section('content')
 
-    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)"
+    <form class="row d-flex justify-content-center align-items-center m-0" style="min-height: calc(100vh - 120px)"
     method="POST" action={{ route('users.update', ['user' => $user->id]) }}>
         @csrf
         @method('PUT')
-        <div class="col card col-3  me-8 p-4 justify-content-center align-items-center text-bg-dark">
+        <div class="col card col-3  me-5 p-4 justify-content-center align-items-center text-bg-dark">
             <div class="row justify-content-center align-items-center mt-5">
                 <div class="col col-auto py-1 d-flex align-items-center flex-column ">
                     <div class="fw-bold text-center fs-5">{{ $user->name }}</div>
@@ -31,7 +31,7 @@
         <div class="col col-md-5">
             <div class="card">
                 <div class="card-header text-center p-2">
-                    {{ $user->name }}'s Profile 
+                    {{ $user->name }}'s Profile
                 </div>
                 <div class="card-body p-3">
                     <div class="row mt-3">

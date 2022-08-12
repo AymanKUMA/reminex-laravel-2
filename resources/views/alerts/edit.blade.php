@@ -4,9 +4,7 @@
 
 @section('content')
     <!-- Content Wrapper -->
-    <div style="height: 10vh"></div>
-    <div id="content-wrapper" class="p-3 pb-2">
-
+    <div id="content-wrapper">
         <form method="POST" action="{{ route('alerts.update', ['alert' => $alert->id]) }}" class="container col col-md-6"
         enctype="multipart/form-data">
         @csrf

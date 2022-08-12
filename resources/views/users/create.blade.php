@@ -10,7 +10,7 @@
         }
     </style>
 {{--    <div style="height: 10vh"></div>--}}
-    <div class="container-md d-flex justify-content-center align-items-center" style="height: calc(100vh - 95px)">
+    <div class="container-md d-flex justify-content-center align-items-center" style="height: calc(100vh - 120px)">
         <form enctype="multipart/form-data" method="POST" action="{{ route('users.store') }}" class="card col-lg-8 col-md-10 col-12  text-bg-light">
             @csrf
             <div class="card-header bg-dark p-3" style="color: var(--main-color)">

@@ -197,7 +197,7 @@
 
 <div class="py-4 position-relative" aria-live="polite" aria-atomic="true"
      style="min-height: calc(100vh - 70px)">
-    <div class="toast-container bottom-0 end-0 p-5">
+    <div class="toast-container bottom-0 end-0 px-5 py-3">
         @if ($errors->any())
 
             @foreach ($errors->all() as $error)

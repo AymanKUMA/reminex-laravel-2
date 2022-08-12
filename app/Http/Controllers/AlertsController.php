@@ -100,9 +100,9 @@ class AlertsController extends Controller
         $record->updated_by = Auth::user()->id;
 
         if($record->save())
-            return redirect()->route('alerts.index');
+            return redirect()->route('alerts.index')->with('message','Alert modified Successfully!');
         else
-            return back()->with('error','Alert can\'t be save due to an error');
+            return back()->with('error','Alert can\'t be save due to an error.');
 
     }
 

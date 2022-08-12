@@ -6,8 +6,7 @@
 
 @section('content')
 
-    <div class="container-md py-4 position-relative" aria-live="polite" aria-atomic="true"
-         style="height: calc(100vh - 100px)">
+    <div class="container-md position-relative">
         <h1 style="color: var(--main-color);">Alerts</h1>
         <div class="row">
             @if (count($alerts) < 4)
