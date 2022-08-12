@@ -91,35 +91,3 @@ function msg_warning_alert($error): void
 }
 
 ?>
-{{-- <div class="toast-container position-absolute  top-0 start-50 p-4 translate-middle translate-middle-x"--}}
-{{--     style="z-index:5; margin-top: 100px">--}}
-{{--    <!-- Position it: -->--}}
-{{--    <!-- - `.toast-container` for spacing between toasts -->--}}
-{{--    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->--}}
-{{--    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->--}}
-{{--    <?php--}}
-{{--    if (isset($_SESSION['warning'])) {--}}
-{{--        foreach ($_SESSION['warning'] as $value) {--}}
-{{--            msg_warning_toast($value);--}}
-{{--        }--}}
-
-{{--    }--}}
-{{--    if (isset($_SESSION['error'])) {--}}
-{{--        foreach ($_SESSION['error'] as $value) {--}}
-{{--            msg_error_toast($value);--}}
-{{--        }--}}
-
-{{--    } else {--}}
-{{--        if (isset($_SESSION['success'])) {--}}
-{{--            foreach ($_SESSION['success'] as $value) {--}}
-{{--                msg_success_toast($value);--}}
-{{--            }--}}
-
-{{--        }--}}
-{{--    }--}}
-{{--    $_SESSION['success']=[];--}}
-{{--    $_SESSION['warning']=[];--}}
-{{--    $_SESSION['error']=[];--}}
-{{--    ?>--}}
-
-{{--</div> --}}
