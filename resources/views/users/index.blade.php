@@ -75,6 +75,11 @@
                                             </form>
 
                                         </li>
+                                    @elseif($user->id == Auth::user()->id)
+                                        <li>
+                                            <a class="dropdown-item" href="{{ route('users.edit',[Auth::id()]) }}">
+                                                <i class="fa-solid fa-pencil"></i> Edit User</a>
+                                        </li>
                                     @endif
                                 </ul>
                             </td>

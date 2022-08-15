@@ -26,11 +26,11 @@
 
         </div>
         <div class="col col-md-5">
-            <div class="card p-4">
+            <div class="card ">
                 <div class="card-header text-center">
-                    {{ $user->name }}'s Profile 
+                    {{ $user->name }}'s Profile
                 </div>
-                <div class="card-body p-3">
+                <div class="card-body p-4">
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <label class="labels">Name</label>

@@ -103,7 +103,10 @@ class UsersController extends Controller
     public function edit($user)
     {
         //
-        if(Auth::user()->isadmin == 0){
+        if($user == Auth::user()->id){
+            return view('profile');
+        }
+        else if(Auth::user()->isadmin == 0){
             return back()->with('error','Only Admin could edit users account');
         }
         return view('users.edit',[
@@ -122,13 +125,13 @@ class UsersController extends Controller
     public function update(Request $request, $user)
     {
         //
-        
+
         $record = User::findOrFail($user);
         $newpassword = $record->username . "0000";
         $record->password = Hash::make($record->username . "0000");
 
         $record->save();
-        
+
         return redirect()
         ->route('users.index')
         ->with('message', $record->username . "'s password was reseted successfully! the new password is " . $newpassword . " !");
