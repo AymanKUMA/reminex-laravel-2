@@ -3,7 +3,7 @@
 @section('title','Change Password')
 
 @section('content')
-    <div class="container py-5">
+    <div class="container py-4">
 
         <div class="row justify-content-center align-items-center">
             <div class="col col-md-6 col-12">

@@ -138,7 +138,7 @@
                                      width="48" height="48"
                                      class="rounded-circle border border-light border-3">
                             @else
-                                <img src={{ url('/images/user.png') }} alt="mdo" width="48" height="48"
+                                <img src={{ url('/images/profile.png') }} alt="mdo" width="48" height="48"
                                      class="rounded-circle border border-light border-3">
                             @endif
                         </a>
@@ -176,7 +176,7 @@
                         <a href="#" class="d-block link-dark text-decoration-none"
                            style="width: 48px;height: 48px" data-bs-toggle="dropdown" aria-expanded="false">
 
-                            <img src={{ url('/images/user.png') }} alt="mdo" width="48" height="48"
+                            <img src={{ url('/images/profile.png') }} alt="mdo" width="48" height="48"
                                  class="rounded-circle border border-light border-3">
                         </a>
                     @endauth
@@ -216,10 +216,13 @@
             {{ msg_toast_success(session()->get('success_login') .' '. Auth::user()->name ) }}
         @endif
         @if(session()->has('message'))
-            {{ msg_toast_success(session()->get('message')) }}
+
+                {{ msg_toast_success(session()->get('message')) }}
         @endif
     </div>
+
     <div class="container-md">
+
         @yield('content')
     </div>
 

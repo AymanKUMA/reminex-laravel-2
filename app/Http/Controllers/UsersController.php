@@ -125,17 +125,27 @@ class UsersController extends Controller
     public function update(Request $request, $user)
     {
         //
-
+         $msg = "";
         $record = User::findOrFail($user);
-        $newpassword = $record->username . "0000";
-        $record->password = Hash::make($record->username . "0000");
+        $record->isadmin = $request->isadmin;
 
-        $record->save();
+        if($request->reset == "true"){
+            $newPassword = $record->username . "0000";
+            $record->password = Hash::make($newPassword);
+            $msg="New password is: $newPassword";
+        }
 
-        return redirect()
-        ->route('users.index')
-        ->with('message', $record->username . "'s password was reseted successfully! the new password is " . $newpassword . " !");
-    }
+        if($record->save()){
+            $msg= "$record->username's Profile has ben saved successfully! \n $msg";
+            return redirect()
+                ->route('users.index')
+                ->with('message',$msg);
+        }
+        else{
+            return back()->with('error',"Something went wrong while updating '$record->name' Profile");
+        }
+
+       }
 
     /**
      * Remove the specified resource from storage.

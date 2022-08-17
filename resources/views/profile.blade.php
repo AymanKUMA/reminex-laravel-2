@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)"
+    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 120px)"
         method="POST" action="{{ route('updateProfile') }}" enctype="multipart/form-data">
         @csrf
         <div class="toast-container bottom-0 start-0 p-3 ">
@@ -34,7 +34,7 @@
                             style="width: 110px !important; height: 110px !important;" src="{{ url('/profile_pics' .'/'. Auth::user()->profile_image_path) }}">
                     @else
                         <img id="edit-img-display" class="rounded-circle border border-5 border-warning mb-3"
-                            style="width: 110px !important; height: 110px !important;" src="{{ url('/images/user.png') }}">
+                            style="width: 110px !important; height: 110px !important;" src="{{ url('/images/profile.png') }}">
                     @endif
                     </div>
             </div>

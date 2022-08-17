@@ -33,16 +33,17 @@ class ProfileController extends Controller
         ]);
 
         if (!Hash::check($request->oldPassword, auth()->user()->password)) {
-            return back()->with('error', 'Old password is invalid ');
+            return back()->with('error', 'Current password is incorrect.');
         }
 
         $user = User::findOrFail(auth()->user()->id);
 
         $user->password = Hash::make($request->newPassword);
 
-        $user->save();
-
-        return back()->with('success', 'Password changed successfully!');
+        if($user->save())
+            return back()->with('message', 'Password have been successfully updated !');
+        else
+            return back()->with('error','Something went wrong while updating your password.');
     }
 
     //profile update
@@ -64,9 +65,9 @@ class ProfileController extends Controller
         }
 
         $newProfileImage = "";
-        
-        if(isset($request->profile_image)){
-            $newProfileImage = str_replace(' ','',$request->username) . '.' . $request->profile_image->extension();
+
+        if (isset($request->profile_image)) {
+            $newProfileImage = str_replace(' ', '', $request->username) . '.' . $request->profile_image->extension();
             $request->profile_image->move(public_path('profile_pics'), $newProfileImage);
         }
 
@@ -75,13 +76,14 @@ class ProfileController extends Controller
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
-        if($newProfileImage != ""){
+        if ($newProfileImage != "") {
             $user->profile_image_path = $newProfileImage;
         }
 
 
-        $user->save();
-        return back()->with('success', 'Infromations changed successfully !');
-
+        if($user->save())
+            return back()->with('message', 'Your profile have been successfully updated ');
+        else
+            return back()->with('error','Something went wrong while updating your profile.');
     }
 }

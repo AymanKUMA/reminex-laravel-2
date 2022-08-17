@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 90px)">
+    <form class="row d-flex justify-content-center align-items-center m-0" style="height: calc(100vh - 120px)">
         <div class="col card col-3  me-8 p-2 justify-content-center align-items-center text-bg-dark">
             <div class="row justify-content-center align-items-center mt-5">
                 <div class="col col-auto py-1 d-flex align-items-center flex-column ">
@@ -14,7 +14,7 @@
                             style="width: 110px !important; height: 110px !important;" src="{{ url('/profile_pics' .'/'. $user->profile_image_path) }}">
                     @else
                         <img id="edit-img-display" class="rounded-circle border border-5 border-warning mb-3"
-                            style="width: 110px !important; height: 110px !important;" src="{{ url('/images/user.png') }}">
+                            style="width: 110px !important; height: 110px !important;" src="{{ url('/images/profile.png') }}">
                     @endif
                     </div>
             </div>
